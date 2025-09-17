@@ -12,9 +12,7 @@ const Header = () => {
     { name: "Training", href: "/training" },
     { name: "Auditing", href: "/auditing" },
     { name: "Consulting", href: "/consulting" },
-    { name: "Products", href: "/products" },
     { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
   ];
 
   const isActive = (href: string) => location.pathname === href;
@@ -75,9 +73,6 @@ const Header = () => {
           </nav>
 
           <div className="hidden lg:flex items-center space-x-4">
-            <Button variant="outline" size="sm" asChild>
-              <Link to="/contact">Get Quote</Link>
-            </Button>
             <Button variant="default" size="sm" asChild>
               <Link to="/contact">Book Consultation</Link>
             </Button>
