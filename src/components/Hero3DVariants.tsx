@@ -153,13 +153,11 @@ const ParticleSystem = () => {
 
   const particles = [];
   for (let i = 0; i < 35; i++) {
-    const angle = (i / 15) * Math.PI * 2;
-    const radius = 1 + Math.random() * 0.5;
     particles.push({
       position: [
-        Math.cos(angle) * radius,
-        (Math.random() - 0.5) * 2,
-        Math.sin(angle) * radius
+        (Math.random() - 0.5) * 8,
+        (Math.random() - 0.5) * 6,
+        (Math.random() - 0.5) * 8
       ] as [number, number, number],
       size: 0.05 + Math.random() * 0.1,
       color: `hsl(${200 + Math.random() * 60}, 70%, 60%)`
