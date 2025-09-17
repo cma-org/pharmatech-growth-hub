@@ -252,13 +252,11 @@ const Training = () => {
                         className="flex-1"
                         asChild
                       >
-                        <Link to={`/training/${program.id}`}>
+                        {/* <Link to={`/training/${program.id}`}>
                           Apply to Program
-                        </Link>
-                      </Button>
-                      <Button variant="outline" asChild>
-                        <Link to={`/training/${program.id}`}>
-                          Learn More
+                        </Link> */}
+                        <Link to='/contact'>
+                          Apply to Program
                         </Link>
                       </Button>
                     </div>
