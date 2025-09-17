@@ -47,7 +47,7 @@ const Footer = () => {
     <footer className="bg-foreground text-primary-foreground">
       {/* Main footer content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid lg:grid-cols-5 md:grid-cols-2 gap-8 lg:gap-12">
           {/* Company info - Left side */}
           <div className="lg:col-span-1 animate-fade-in">
             <div className="mb-6">
@@ -61,32 +61,10 @@ const Footer = () => {
               Your trusted partner in Pharmaceutical & Biotech Quality Solutions. 
               Part of the Fixity Group of Companies.
             </p>
-            
-            {/* Contact info */}
-            <div className="space-y-3">
-              <div className="flex items-start space-x-3 text-sm">
-                <MapPin className="h-4 w-4 mt-1 text-accent flex-shrink-0" />
-                <div>
-                  <p className="text-primary-foreground/80">
-                    #1st floor, Legend Platinum<br />
-                    Jubilee Enclave, Hitech City<br />
-                    Hyderabad, India
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3 text-sm">
-                <Phone className="h-4 w-4 text-accent" />
-                <span className="text-primary-foreground/80">+91 96039 78651</span>
-              </div>
-              <div className="flex items-center space-x-3 text-sm">
-                <Mail className="h-4 w-4 text-accent" />
-                <span className="text-primary-foreground/80">hello@axygenpharmatech.com</span>
-              </div>
-            </div>
           </div>
 
-          {/* Right side - Services sections */}
-          <div className="lg:col-span-3 grid md:grid-cols-3 gap-8">
+          {/* Middle - Services sections */}
+          <div className="lg:col-span-3 grid md:grid-cols-3 gap-6">
             {/* Services */}
             <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
               <h4 className="text-lg font-semibold mb-6">Services</h4>
@@ -139,6 +117,41 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+
+          {/* Contact Details - Right side */}
+          <div className="lg:col-span-1 animate-fade-in" style={{ animationDelay: '0.8s' }}>
+            <h4 className="text-lg font-semibold mb-6">Contact Details</h4>
+            <div className="space-y-4">
+              <div className="flex items-start space-x-3 text-sm">
+                <MapPin className="h-4 w-4 mt-1 text-accent flex-shrink-0" />
+                <div>
+                  <p className="text-primary-foreground/80 leading-relaxed">
+                    #1st floor, Legend Platinum<br />
+                    Jubilee Enclave, Hitech City<br />
+                    Hyderabad, India
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3 text-sm">
+                <Phone className="h-4 w-4 text-accent" />
+                <a 
+                  href="tel:+919603978651" 
+                  className="text-primary-foreground/80 hover:text-accent transition-colors"
+                >
+                  +91 96039 78651
+                </a>
+              </div>
+              <div className="flex items-center space-x-3 text-sm">
+                <Mail className="h-4 w-4 text-accent" />
+                <a 
+                  href="mailto:hello@axygenpharmatech.com" 
+                  className="text-primary-foreground/80 hover:text-accent transition-colors"
+                >
+                  hello@axygenpharmatech.com
+                </a>
+              </div>
             </div>
           </div>
         </div>
