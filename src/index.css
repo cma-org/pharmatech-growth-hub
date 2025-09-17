@@ -2,41 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Axygen Pharmatech Design System - Professional Pharmaceutical Industry Design
+All colors MUST be HSL for proper theming.
 */
 
 @layer base {
   :root {
+    /* Core pharmaceutical blue palette */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 215 25% 27%;
+    
+    /* Professional blue-based design */
+    --primary: 212 84% 49%;
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 212 84% 35%;
+    --primary-light: 212 84% 65%;
+    
+    /* Trust-building secondary colors */
+    --secondary: 210 17% 95%;
+    --secondary-foreground: 215 25% 27%;
+    --secondary-dark: 210 17% 85%;
+    
+    /* Professional accent - pharmaceutical green */
+    --accent: 142 71% 45%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 142 71% 85%;
+    
+    /* Neutral grays for professional layout */
+    --muted: 210 17% 95%;
+    --muted-foreground: 215 16% 47%;
+    --muted-dark: 210 17% 85%;
+    
+    /* Cards and surfaces */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 215 25% 27%;
+    --card-border: 210 17% 90%;
+    
+    /* Interactive elements */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
+    --popover-foreground: 215 25% 27%;
+    
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 210 17% 90%;
+    --input: 210 17% 90%;
+    --ring: 212 84% 49%;
     --radius: 0.5rem;
+    
+    /* Professional gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(212 84% 49%), hsl(212 84% 35%));
+    --gradient-hero: linear-gradient(135deg, hsl(212 84% 49%) 0%, hsl(142 71% 45%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 17% 98%) 100%);
+    --gradient-trust: linear-gradient(90deg, hsl(210 17% 95%) 0%, hsl(0 0% 100%) 50%, hsl(210 17% 95%) 100%);
+    
+    /* Professional shadows */
+    --shadow-card: 0 4px 12px -2px hsl(212 84% 49% / 0.08);
+    --shadow-hover: 0 8px 24px -4px hsl(212 84% 49% / 0.12);
+    --shadow-hero: 0 20px 40px -12px hsl(212 84% 49% / 0.25);
+    --shadow-professional: 0 2px 8px -1px hsl(215 25% 27% / 0.1);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
