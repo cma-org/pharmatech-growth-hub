@@ -65,7 +65,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="lg:flex justify-center items-center hidden">
+          <div className="lg:flex justify-end items-center hidden">
             <Hero3DVariant type="dna" />
           </div>
         </div>
