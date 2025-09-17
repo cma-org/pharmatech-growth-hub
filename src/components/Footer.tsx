@@ -48,7 +48,7 @@ const Footer = () => {
       {/* Main footer content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
-          {/* Company info */}
+          {/* Company info - Left side */}
           <div className="lg:col-span-1">
             <div className="mb-6">
               <img 
@@ -85,58 +85,61 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6">Services</h4>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    to={link.href}
-                    className="text-primary-foreground/80 hover:text-accent transition-colors text-sm flex items-center group"
-                  >
-                    <ArrowRight className="h-3 w-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Right side - Services sections */}
+          <div className="lg:col-span-3 grid md:grid-cols-3 gap-8">
+            {/* Services */}
+            <div>
+              <h4 className="text-lg font-semibold mb-6">Services</h4>
+              <ul className="space-y-3">
+                {quickLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link 
+                      to={link.href}
+                      className="text-primary-foreground/80 hover:text-accent transition-colors text-sm flex items-center group"
+                    >
+                      <ArrowRight className="h-3 w-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Training Programs */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6">Training Programs</h4>
-            <ul className="space-y-3">
-              {services.map((service) => (
-                <li key={service.name}>
-                  <Link 
-                    to={service.href}
-                    className="text-primary-foreground/80 hover:text-accent transition-colors text-sm flex items-center group"
-                  >
-                    <ArrowRight className="h-3 w-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    {service.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+            {/* Training Programs */}
+            <div>
+              <h4 className="text-lg font-semibold mb-6">Training Programs</h4>
+              <ul className="space-y-3">
+                {services.map((service) => (
+                  <li key={service.name}>
+                    <Link 
+                      to={service.href}
+                      className="text-primary-foreground/80 hover:text-accent transition-colors text-sm flex items-center group"
+                    >
+                      <ArrowRight className="h-3 w-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      {service.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Resources & Newsletter */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6">Resources</h4>
-            <ul className="space-y-3">
-              {resources.map((resource) => (
-                <li key={resource.name}>
-                  <Link 
-                    to={resource.href}
-                    className="text-primary-foreground/80 hover:text-accent transition-colors text-sm flex items-center group"
-                  >
-                    <ArrowRight className="h-3 w-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    {resource.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            {/* Resources */}
+            <div>
+              <h4 className="text-lg font-semibold mb-6">Resources</h4>
+              <ul className="space-y-3">
+                {resources.map((resource) => (
+                  <li key={resource.name}>
+                    <Link 
+                      to={resource.href}
+                      className="text-primary-foreground/80 hover:text-accent transition-colors text-sm flex items-center group"
+                    >
+                      <ArrowRight className="h-3 w-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      {resource.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
