@@ -66,7 +66,7 @@ const Hero = () => {
           </div>
 
           <div className="lg:flex justify-end items-center hidden">
-            <Hero3DVariant type="dna" />
+            <Hero3DVariant type="particles" />
           </div>
         </div>
       </div>
