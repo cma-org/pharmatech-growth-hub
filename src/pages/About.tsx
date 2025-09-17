@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
+import CountingNumber from "@/components/CountingNumber";
 import { 
   Users, 
   Award, 
@@ -22,25 +23,29 @@ const About = () => {
   const achievements = [
     {
       icon: Users,
-      number: "10,000+",
+      number: 10000,
+      suffix: "+",
       title: "Professionals Trained",
       description: "Successfully trained across pharmaceutical and biotech industries"
     },
     {
       icon: Award,
-      number: "75+",
+      number: 75,
+      suffix: "+",
       title: "Years Combined Leadership",
       description: "Decades of hands-on pharmaceutical industry experience"
     },
     {
       icon: Globe,
-      number: "3",
+      number: 3,
+      suffix: "",
       title: "Regulatory Standards",
       description: "USFDA, EU-GMP, and WHO regulatory inspection expertise"
     },
     {
       icon: TrendingUp,
-      number: "40%",
+      number: 40,
+      suffix: "%",
       title: "Quality Incident Reduction",
       description: "Average reduction in quality incidents through our QMS improvements"
     }
@@ -186,7 +191,12 @@ const About = () => {
                   <CardHeader>
                     <Icon className="h-12 w-12 text-primary mx-auto mb-4" />
                     <div className="text-4xl font-bold text-primary mb-2">
-                      {achievement.number}
+                      <CountingNumber 
+                        end={achievement.number} 
+                        suffix={achievement.suffix}
+                        className="text-4xl font-bold text-primary"
+                        duration={2500}
+                      />
                     </div>
                     <CardTitle className="text-lg font-bold text-foreground">
                       {achievement.title}
