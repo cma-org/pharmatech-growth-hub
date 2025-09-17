@@ -152,7 +152,7 @@ const ParticleSystem = () => {
   });
 
   const particles = [];
-  for (let i = 0; i < 15; i++) {
+  for (let i = 0; i < 35; i++) {
     const angle = (i / 15) * Math.PI * 2;
     const radius = 1 + Math.random() * 0.5;
     particles.push({
