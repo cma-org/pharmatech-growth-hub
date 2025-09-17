@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { CheckCircle, Users, Award, Globe } from "lucide-react";
 import heroImage from "@/assets/hero-pharma-lab.jpg";
-import Hero3D from "@/components/Hero3D";
+import Hero3DVariant from "@/components/Hero3DVariants";
 
 const Hero = () => {
   const achievements = [
@@ -66,7 +66,7 @@ const Hero = () => {
           </div>
 
           <div className="lg:flex justify-center items-center hidden">
-            <Hero3D />
+            <Hero3DVariant type="dna" />
           </div>
         </div>
       </div>
