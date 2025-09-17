@@ -297,11 +297,6 @@ const Training = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button variant="default" className="w-full mt-6" asChild>
-                    <Link to="/contact">
-                      View All Courses
-                    </Link>
-                  </Button>
                 </CardContent>
               </Card>
             ))}
