@@ -127,6 +127,10 @@ All colors MUST be HSL for proper theming.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
   }

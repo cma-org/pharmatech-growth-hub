@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -246,15 +247,12 @@ const Training = () => {
                       </div>
                     </div>
 
-                    <div className="flex space-x-3 pt-4">
+                    <div className="flex pt-4">
                       <Button 
-                        variant={program.color === "primary" ? "default" : "secondary"} 
-                        className="flex-1"
+                        variant="default" 
+                        className="w-full"
                         asChild
                       >
-                        {/* <Link to={`/training/${program.id}`}>
-                          Apply to Program
-                        </Link> */}
                         <Link to='/contact'>
                           Apply to Program
                         </Link>
@@ -299,8 +297,10 @@ const Training = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button variant="outline" className="w-full mt-6">
-                    View All Courses
+                  <Button variant="default" className="w-full mt-6" asChild>
+                    <Link to="/contact">
+                      View All Courses
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -335,6 +335,7 @@ const Training = () => {
       </section>
 
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };
