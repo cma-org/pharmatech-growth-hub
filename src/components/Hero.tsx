@@ -45,7 +45,7 @@ const Hero = () => {
               <Button variant="secondary" size="lg" className="text-lg px-8 py-4" asChild>
                 <Link to="/contact">Request Audit Proposal</Link>
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
+              <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-primary-foreground text-primary hover:bg-primary-foreground hover:text-primary" asChild>
                 <Link to="/training">Explore Training Programs</Link>
               </Button>
             </div>
