@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { CheckCircle, Users, Award, Globe } from "lucide-react";
 import heroImage from "@/assets/hero-pharma-lab.jpg";
-import CountingNumber from "@/components/CountingNumber";
+import Hero3D from "@/components/Hero3D";
 
 const Hero = () => {
   const achievements = [
@@ -66,16 +66,7 @@ const Hero = () => {
           </div>
 
           <div className="lg:flex justify-center items-center hidden">
-            <div className="relative">
-              <div className="w-96 h-96 bg-primary-foreground/10 rounded-full absolute -top-4 -left-4"></div>
-              <div className="w-80 h-80 bg-accent/20 rounded-full relative flex items-center justify-center">
-                <div className="text-center text-primary-foreground">
-                  <CountingNumber end={75} suffix="+" className="text-6xl font-bold mb-2" />
-                  <div className="text-lg font-medium">Years Combined</div>
-                  <div className="text-lg font-medium">Leadership</div>
-                </div>
-              </div>
-            </div>
+            <Hero3D />
           </div>
         </div>
       </div>
