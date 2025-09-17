@@ -47,7 +47,7 @@ const Footer = () => {
     <footer className="bg-foreground text-primary-foreground">
       {/* Main footer content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12 lg:gap-16">
           {/* Company info - Left side */}
           <div className="lg:col-span-1">
             <div className="mb-6">
