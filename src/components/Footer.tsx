@@ -166,13 +166,13 @@ const Footer = () => {
 
           {/* Social links */}
           <div className="flex space-x-4">
-            <Button variant="ghost" size="sm" className="w-8 h-8 p-0 text-primary-foreground/70 hover:text-accent">
+            <Button variant="ghost" size="sm" className="w-8 h-8 p-0 text-primary-foreground/70 hover:text-accent hover:text-white">
               <Linkedin className="h-4 w-4" />
             </Button>
-            <Button variant="ghost" size="sm" className="w-8 h-8 p-0 text-primary-foreground/70 hover:text-accent">
+            <Button variant="ghost" size="sm" className="w-8 h-8 p-0 text-primary-foreground/70 hover:text-accent hover:text-white">
               <Twitter className="h-4 w-4" />
             </Button>
-            <Button variant="ghost" size="sm" className="w-8 h-8 p-0 text-primary-foreground/70 hover:text-accent">
+            <Button variant="ghost" size="sm" className="w-8 h-8 p-0 text-primary-foreground/70 hover:text-accent hover:text-white">
               <Facebook className="h-4 w-4" />
             </Button>
           </div>
