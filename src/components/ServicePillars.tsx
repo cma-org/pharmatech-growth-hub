@@ -77,7 +77,7 @@ const ServicePillars = () => {
         "Real-time Insights",
         "Predictive Analytics"
       ],
-      link: "/products",
+      link: "/contact",
       cta: "Request Demo",
       color: "accent"
     }
