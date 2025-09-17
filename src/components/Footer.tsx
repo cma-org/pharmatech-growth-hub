@@ -10,6 +10,7 @@ import {
   Facebook,
   ArrowRight
 } from "lucide-react";
+import axygenLogo from "@/assets/axygen-logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -49,14 +50,12 @@ const Footer = () => {
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
           {/* Company info */}
           <div className="lg:col-span-1">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">A</span>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold">Axygen Pharmatech</h3>
-                <p className="text-sm text-primary-foreground/70">Quality Solutions Partner</p>
-              </div>
+            <div className="mb-6">
+              <img 
+                src={axygenLogo} 
+                alt="Axygen Pharmatech - Global Centre of Excellence for GxP Training & Consulting" 
+                className="h-16 w-auto mb-4 brightness-0 invert"
+              />
             </div>
             <p className="text-primary-foreground/80 mb-6 leading-relaxed">
               Your trusted partner in Pharmaceutical & Biotech Quality Solutions. 
