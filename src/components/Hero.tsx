@@ -78,13 +78,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
-      {/* Bottom curve */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1200 120" fill="none" className="w-full h-20">
-          <path d="M0 120L1200 120L1200 0C800 40 400 40 0 0V120Z" fill="hsl(var(--background))" />
-        </svg>
-      </div>
     </section>
   );
 };
