@@ -122,14 +122,6 @@ const Auditing = () => {
               Product-specific audits aligned to current guidelines with CAPA support. 
               Led by veterans with USFDA, EU-GMP, and WHO regulatory inspection experience.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg" className="text-lg px-8 py-4" asChild>
-                <Link to="/contact">Request Audit Proposal</Link>
-              </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
-                <Link to="/contact">Book Readiness Assessment</Link>
-              </Button>
-            </div>
           </div>
         </div>
       </section>
@@ -185,10 +177,6 @@ const Auditing = () => {
                       ))}
                     </div>
                   </div>
-
-                  <Button variant="outline" className="w-full mt-4" size="sm">
-                    Learn More
-                  </Button>
                 </CardContent>
               </Card>
             ))}
@@ -354,6 +342,12 @@ const Auditing = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="secondary" size="lg" className="text-lg px-8 py-4" asChild>
+              <Link to="/contact">
+                <Calendar className="mr-2 h-5 w-5" />
+                Schedule Consultation
+              </Link>
+            </Button>
+            <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
               <Link to="/contact">
                 Request Audit Proposal
               </Link>
