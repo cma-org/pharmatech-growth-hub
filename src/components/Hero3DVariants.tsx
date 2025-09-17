@@ -275,7 +275,7 @@ const Hero3DVariant = ({ type = 'dna' }: { type?: 'molecule' | 'dna' | 'particle
       
       {/* Overlay with counting number - positioned to the right */}
       <div className="absolute inset-0 flex items-center justify-end pr-16">
-        <div className="text-center text-primary-foreground bg-primary/20 backdrop-blur-sm rounded-full p-8">
+        <div className="text-center text-white bg-emerald-500/30 backdrop-blur-md rounded-full p-8 border border-emerald-400/20">
           <CountingNumber end={75} suffix="+" className="text-5xl font-bold mb-2" />
           <div className="text-lg font-medium">Years Combined</div>
           <div className="text-lg font-medium">Leadership</div>
