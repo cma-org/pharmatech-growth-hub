@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone, Mail } from "lucide-react";
+import { 
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Menu, X, Phone, Mail, ChevronDown } from "lucide-react";
 import axygenLogo from "@/assets/axygen-fixity-logo-v2.png";
 
 const Header = () => {
@@ -9,12 +15,20 @@ const Header = () => {
   const location = useLocation();
 
   const navigation = [
-    { name: "Home", href: "/" },
-    { name: "Training", href: "/training" },
-    { name: "Auditing", href: "/auditing" },
-    { name: "Consulting", href: "/consulting" },
-    { name: "About", href: "/about" },
+    { name: "HOME", href: "/" },
+    { name: "ABOUT", href: "/about" },
+    { name: "GALLERY", href: "/gallery" },
+    { name: "CONTACT", href: "/contact" },
   ];
+
+  const servicesItems = [
+    { name: "Auditing", href: "/auditing" },
+    { name: "Training", href: "/training" },
+    { name: "Consulting", href: "/consulting" },
+    { name: "Recruitment", href: "/recruitment" },
+  ];
+
+  const isServicesActive = servicesItems.some(item => location.pathname === item.href);
 
   const isActive = (href: string) => location.pathname === href;
 
@@ -55,7 +69,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex space-x-8">
+          <nav className="hidden lg:flex space-x-8 items-center">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -69,13 +83,31 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
+            
+            {/* Services Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className={`flex items-center space-x-1 px-3 py-2 text-sm font-medium transition-smooth rounded-md ${
+                isServicesActive
+                  ? "text-primary bg-primary/5"
+                  : "text-foreground hover:text-primary hover:bg-primary/5"
+              }`}>
+                <span>SERVICES</span>
+                <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-background border border-border shadow-lg z-50">
+                {servicesItems.map((item) => (
+                  <DropdownMenuItem key={item.name} asChild>
+                    <Link
+                      to={item.href}
+                      className="w-full px-4 py-2 text-sm hover:bg-primary/5 hover:text-primary transition-smooth"
+                    >
+                      {item.name}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
-
-          <div className="hidden lg:flex items-center space-x-4">
-            <Button variant="default" size="sm" asChild>
-              <Link to="/contact">Book Consultation</Link>
-            </Button>
-          </div>
 
           {/* Mobile menu button */}
           <div className="lg:hidden">
@@ -108,17 +140,24 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-            <div className="pt-4 space-y-2">
-              <Button variant="outline" size="sm" className="w-full" asChild>
-                <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
-                  Get Quote
+            
+            {/* Services Section */}
+            <div className="pt-2">
+              <div className="px-3 py-2 text-sm font-medium text-primary">SERVICES</div>
+              {servicesItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`block px-6 py-2 text-sm font-medium transition-smooth rounded-md ${
+                    isActive(item.href)
+                      ? "text-primary bg-primary/5"
+                      : "text-foreground hover:text-primary hover:bg-primary/5"
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
                 </Link>
-              </Button>
-              <Button variant="default" size="sm" className="w-full" asChild>
-                <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
-                  Book Consultation
-                </Link>
-              </Button>
+              ))}
             </div>
           </div>
         </div>
