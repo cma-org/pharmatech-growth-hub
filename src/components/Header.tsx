@@ -52,11 +52,11 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="flex items-center group">
               <img 
                 src={axygenLogo} 
                 alt="Axygen Pharmatech - Global Centre of Excellence for GxP Training & Consulting" 
-                className="h-12 w-auto"
+                className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
               />
             </Link>
           </div>
@@ -136,7 +136,7 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="lg:hidden bg-card border-t border-card-border">
+        <div className="lg:hidden bg-card border-t border-card-border animate-slide-in-right">
           <div className="px-4 py-2 space-y-1">
             <Link
               to="/"

@@ -100,12 +100,16 @@ const ServicePillars = () => {
           {pillars.map((pillar, index) => {
             const Icon = pillar.icon;
             return (
-              <Card key={index} className="group hover:shadow-hover transition-all duration-300 border-card-border bg-card overflow-hidden">
+              <Card 
+                key={index} 
+                className="group hover:shadow-hover hover:scale-[1.02] transition-all duration-300 border-card-border bg-card overflow-hidden animate-fade-in hover-scale"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
                 <div className="relative h-48 overflow-hidden">
                   <img 
                     src={pillar.image} 
                     alt={pillar.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent"></div>
                   <div className="absolute bottom-4 left-4">
@@ -142,7 +146,7 @@ const ServicePillars = () => {
                   <div className="pt-4">
                     <Button 
                       variant="default"
-                      className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors" 
+                      className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all duration-200" 
                       asChild
                     >
                       <Link to={pillar.link}>
@@ -158,8 +162,8 @@ const ServicePillars = () => {
         </div>
 
         {/* Trust signals */}
-        <div className="mt-16 text-center">
-          <div className="bg-gradient-trust rounded-2xl p-8 shadow-card">
+        <div className="mt-16 text-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          <div className="bg-gradient-trust rounded-2xl p-8 shadow-card hover:shadow-hover transition-all duration-300">
             <h3 className="text-2xl font-bold text-foreground mb-4">Why Choose Axygen Pharmatech?</h3>
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>

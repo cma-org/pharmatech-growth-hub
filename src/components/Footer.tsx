@@ -49,12 +49,12 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12 lg:gap-16">
           {/* Company info - Left side */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 animate-fade-in">
             <div className="mb-6">
               <img 
                 src={axygenLogo} 
                 alt="Axygen Pharmatech - Global Centre of Excellence for GxP Training & Consulting" 
-                className="h-16 w-auto mb-4 brightness-0 invert"
+                className="h-16 w-auto mb-4 brightness-0 invert hover:scale-105 transition-transform duration-300"
               />
             </div>
             <p className="text-primary-foreground/80 mb-6 leading-relaxed">
@@ -88,14 +88,14 @@ const Footer = () => {
           {/* Right side - Services sections */}
           <div className="lg:col-span-3 grid md:grid-cols-3 gap-8">
             {/* Services */}
-            <div>
+            <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
               <h4 className="text-lg font-semibold mb-6">Services</h4>
               <ul className="space-y-3">
-                {quickLinks.map((link) => (
+                {quickLinks.map((link, index) => (
                   <li key={link.name}>
                     <Link 
                       to={link.href}
-                      className="text-primary-foreground/80 hover:text-accent transition-colors text-sm flex items-center group"
+                      className="text-primary-foreground/80 hover:text-accent hover:translate-x-1 transition-all duration-200 text-sm flex items-center group"
                     >
                       <ArrowRight className="h-3 w-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
                       {link.name}
@@ -106,14 +106,14 @@ const Footer = () => {
             </div>
 
             {/* Training Programs */}
-            <div>
+            <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
               <h4 className="text-lg font-semibold mb-6">Training Programs</h4>
               <ul className="space-y-3">
                 {services.map((service) => (
                   <li key={service.name}>
                     <Link 
                       to={service.href}
-                      className="text-primary-foreground/80 hover:text-accent transition-colors text-sm flex items-center group"
+                      className="text-primary-foreground/80 hover:text-accent hover:translate-x-1 transition-all duration-200 text-sm flex items-center group"
                     >
                       <ArrowRight className="h-3 w-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
                       {service.name}
@@ -124,14 +124,14 @@ const Footer = () => {
             </div>
 
             {/* Resources */}
-            <div>
+            <div className="animate-fade-in" style={{ animationDelay: '0.6s' }}>
               <h4 className="text-lg font-semibold mb-6">Resources</h4>
               <ul className="space-y-3">
                 {resources.map((resource) => (
                   <li key={resource.name}>
                     <Link 
                       to={resource.href}
-                      className="text-primary-foreground/80 hover:text-accent transition-colors text-sm flex items-center group"
+                      className="text-primary-foreground/80 hover:text-accent hover:translate-x-1 transition-all duration-200 text-sm flex items-center group"
                     >
                       <ArrowRight className="h-3 w-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
                       {resource.name}
@@ -166,13 +166,13 @@ const Footer = () => {
 
           {/* Social links */}
           <div className="flex space-x-4">
-            <Button variant="ghost" size="sm" className="w-8 h-8 p-0 text-primary-foreground/70 hover:text-accent hover:text-white">
+            <Button variant="ghost" size="sm" className="w-8 h-8 p-0 text-primary-foreground/70 hover:text-accent hover:text-white hover:scale-110 transition-all duration-200">
               <Linkedin className="h-4 w-4" />
             </Button>
-            <Button variant="ghost" size="sm" className="w-8 h-8 p-0 text-primary-foreground/70 hover:text-accent hover:text-white">
+            <Button variant="ghost" size="sm" className="w-8 h-8 p-0 text-primary-foreground/70 hover:text-accent hover:text-white hover:scale-110 transition-all duration-200">
               <Twitter className="h-4 w-4" />
             </Button>
-            <Button variant="ghost" size="sm" className="w-8 h-8 p-0 text-primary-foreground/70 hover:text-accent hover:text-white">
+            <Button variant="ghost" size="sm" className="w-8 h-8 p-0 text-primary-foreground/70 hover:text-accent hover:text-white hover:scale-110 transition-all duration-200">
               <Facebook className="h-4 w-4" />
             </Button>
           </div>

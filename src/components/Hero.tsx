@@ -28,35 +28,35 @@ const Hero = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-primary-foreground">
-            <div className="mb-6">
-              <span className="inline-block px-4 py-2 bg-accent/20 text-accent-foreground rounded-full text-sm font-medium mb-4">
+            <div className="mb-6 animate-fade-in">
+              <span className="inline-block px-4 py-2 bg-accent/20 text-accent-foreground rounded-full text-sm font-medium mb-4 hover:scale-105 transition-transform duration-200">
                 Pharmaceutical & Biotech Quality Solutions
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
                 Your Trusted Partner in 
                 <span className="text-accent"> GxP Excellence</span>
               </h1>
-              <p className="text-xl md:text-2xl leading-relaxed text-primary-foreground/90 mb-8">
+              <p className="text-xl md:text-2xl leading-relaxed text-primary-foreground/90 mb-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
                 Global reach with local partnership in pharmaceutical GxP. 
                 Delivering compliance-driven, practical solutions that deliver measurable results.
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Button variant="secondary" size="lg" className="text-lg px-8 py-4" asChild>
+            <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+              <Button variant="secondary" size="lg" className="text-lg px-8 py-4 hover:scale-105 transition-all duration-200" asChild>
                 <Link to="/contact">Request Audit Proposal</Link>
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-4 bg-primary-foreground/10 border-primary-foreground" asChild>
+              <Button variant="outline" size="lg" className="text-lg px-8 py-4 bg-primary-foreground/10 border-primary-foreground hover:scale-105 hover:bg-primary-foreground/20 transition-all duration-200" asChild>
                 <Link to="/training">Explore Training Programs</Link>
               </Button>
             </div>
 
             {/* Key achievements */}
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-4 animate-fade-in" style={{ animationDelay: '0.8s' }}>
               {achievements.map((achievement, index) => {
                 const Icon = achievement.icon;
                 return (
-                  <div key={index} className="flex items-center space-x-3 text-primary-foreground/90">
+                  <div key={index} className="flex items-center space-x-3 text-primary-foreground/90 hover:scale-105 transition-transform duration-200">
                     <Icon className={`h-5 w-5 ${achievement.color}`} />
                     <span className="text-sm font-medium">{achievement.text}</span>
                   </div>
@@ -65,7 +65,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="lg:flex justify-end items-center hidden">
+          <div className="lg:flex justify-end items-center hidden animate-fade-in" style={{ animationDelay: '1s' }}>
             <Hero3DVariant type="particles" />
           </div>
         </div>
