@@ -14,13 +14,6 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-  const navigation = [
-    { name: "HOME", href: "/" },
-    { name: "ABOUT", href: "/about" },
-    { name: "GALLERY", href: "/gallery" },
-    { name: "CONTACT", href: "/contact" },
-  ];
-
   const servicesItems = [
     { name: "Auditing", href: "/auditing" },
     { name: "Training", href: "/training" },
@@ -70,19 +63,16 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex space-x-8 items-center">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className={`px-3 py-2 text-sm font-medium transition-smooth rounded-md ${
-                  isActive(item.href)
-                    ? "text-primary bg-primary/5"
-                    : "text-foreground hover:text-primary hover:bg-primary/5"
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
+            <Link
+              to="/"
+              className={`px-3 py-2 text-sm font-medium transition-smooth rounded-md ${
+                isActive("/")
+                  ? "text-primary bg-primary/5"
+                  : "text-foreground hover:text-primary hover:bg-primary/5"
+              }`}
+            >
+              HOME
+            </Link>
             
             {/* Services Dropdown */}
             <DropdownMenu>
@@ -107,6 +97,28 @@ const Header = () => {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
+
+            <Link
+              to="/about"
+              className={`px-3 py-2 text-sm font-medium transition-smooth rounded-md ${
+                isActive("/about")
+                  ? "text-primary bg-primary/5"
+                  : "text-foreground hover:text-primary hover:bg-primary/5"
+              }`}
+            >
+              ABOUT US
+            </Link>
+
+            <Link
+              to="/contact"
+              className={`px-3 py-2 text-sm font-medium transition-smooth rounded-md ${
+                isActive("/contact")
+                  ? "text-primary bg-primary/5"
+                  : "text-foreground hover:text-primary hover:bg-primary/5"
+              }`}
+            >
+              CONTACT US
+            </Link>
           </nav>
 
           {/* Mobile menu button */}
@@ -126,20 +138,17 @@ const Header = () => {
       {isMenuOpen && (
         <div className="lg:hidden bg-card border-t border-card-border">
           <div className="px-4 py-2 space-y-1">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className={`block px-3 py-2 text-sm font-medium transition-smooth rounded-md ${
-                  isActive(item.href)
-                    ? "text-primary bg-primary/5"
-                    : "text-foreground hover:text-primary hover:bg-primary/5"
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
+            <Link
+              to="/"
+              className={`block px-3 py-2 text-sm font-medium transition-smooth rounded-md ${
+                isActive("/")
+                  ? "text-primary bg-primary/5"
+                  : "text-foreground hover:text-primary hover:bg-primary/5"
+              }`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              HOME
+            </Link>
             
             {/* Services Section */}
             <div className="pt-2">
@@ -159,6 +168,30 @@ const Header = () => {
                 </Link>
               ))}
             </div>
+
+            <Link
+              to="/about"
+              className={`block px-3 py-2 text-sm font-medium transition-smooth rounded-md ${
+                isActive("/about")
+                  ? "text-primary bg-primary/5"
+                  : "text-foreground hover:text-primary hover:bg-primary/5"
+              }`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              ABOUT US
+            </Link>
+
+            <Link
+              to="/contact"
+              className={`block px-3 py-2 text-sm font-medium transition-smooth rounded-md ${
+                isActive("/contact")
+                  ? "text-primary bg-primary/5"
+                  : "text-foreground hover:text-primary hover:bg-primary/5"
+              }`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              CONTACT US
+            </Link>
           </div>
         </div>
       )}
