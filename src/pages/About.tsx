@@ -126,9 +126,6 @@ const About = () => {
             We provide customized GxP solutions that foster compliance, efficiency, and long-term growth. 
             Our mission is to be your trusted partner in achieving pharmaceutical and biotech quality excellence.
           </p>
-          <Button variant="secondary" size="lg" className="text-lg px-8 py-4" asChild>
-            <Link to="/contact">Partner With Us</Link>
-          </Button>
         </div>
       </section>
 
