@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { CheckCircle, Users, Award, Globe } from "lucide-react";
 import heroImage from "@/assets/hero-pharma-lab.jpg";
+import CountingNumber from "@/components/CountingNumber";
 
 const Hero = () => {
   const achievements = [
@@ -45,7 +46,7 @@ const Hero = () => {
               <Button variant="secondary" size="lg" className="text-lg px-8 py-4" asChild>
                 <Link to="/contact">Request Audit Proposal</Link>
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
+              <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:border-primary-foreground" asChild>
                 <Link to="/training">Explore Training Programs</Link>
               </Button>
             </div>
@@ -69,7 +70,7 @@ const Hero = () => {
               <div className="w-96 h-96 bg-primary-foreground/10 rounded-full absolute -top-4 -left-4"></div>
               <div className="w-80 h-80 bg-accent/20 rounded-full relative flex items-center justify-center">
                 <div className="text-center text-primary-foreground">
-                  <div className="text-6xl font-bold mb-2">75+</div>
+                  <CountingNumber end={75} suffix="+" className="text-6xl font-bold mb-2" />
                   <div className="text-lg font-medium">Years Combined</div>
                   <div className="text-lg font-medium">Leadership</div>
                 </div>

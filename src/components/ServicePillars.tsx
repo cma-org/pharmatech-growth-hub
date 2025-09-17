@@ -13,6 +13,7 @@ import {
 import trainingImage from "@/assets/training-session.jpg";
 import auditImage from "@/assets/audit-quality.jpg";
 import aiImage from "@/assets/ai-dashboard.jpg";
+import CountingNumber from "@/components/CountingNumber";
 
 const ServicePillars = () => {
   const pillars = [
@@ -140,8 +141,8 @@ const ServicePillars = () => {
                   
                   <div className="pt-4">
                     <Button 
-                      variant={pillar.color === "primary" ? "default" : "secondary"} 
-                      className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors" 
+                      variant="default"
+                      className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors" 
                       asChild
                     >
                       <Link to={pillar.link}>
@@ -162,15 +163,15 @@ const ServicePillars = () => {
             <h3 className="text-2xl font-bold text-foreground mb-4">Why Choose Axygen Pharmatech?</h3>
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-primary mb-2">75+</div>
+                <CountingNumber end={75} suffix="+" className="text-3xl font-bold text-primary mb-2" />
                 <div className="text-sm text-muted-foreground">Years Combined Leadership Experience</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-accent mb-2">10,000+</div>
+                <CountingNumber end={10000} suffix="+" className="text-3xl font-bold text-accent mb-2" />
                 <div className="text-sm text-muted-foreground">Professionals Successfully Trained</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-primary mb-2">40%</div>
+                <CountingNumber end={40} suffix="%" className="text-3xl font-bold text-primary mb-2" />
                 <div className="text-sm text-muted-foreground">Reduction in Quality Incidents</div>
               </div>
             </div>

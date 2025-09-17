@@ -124,7 +124,7 @@ const Footer = () => {
           {/* Resources & Newsletter */}
           <div>
             <h4 className="text-lg font-semibold mb-6">Resources</h4>
-            <ul className="space-y-3 mb-6">
+            <ul className="space-y-3">
               {resources.map((resource) => (
                 <li key={resource.name}>
                   <Link 
@@ -137,17 +137,6 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-
-            {/* Newsletter */}
-            <div className="bg-primary-foreground/5 rounded-lg p-4">
-              <h5 className="font-medium mb-2">Stay Updated</h5>
-              <p className="text-sm text-primary-foreground/70 mb-3">
-                Get the latest insights on pharmaceutical quality and compliance.
-              </p>
-              <Button variant="secondary" size="sm" className="w-full">
-                Subscribe to Newsletter
-              </Button>
-            </div>
           </div>
         </div>
       </div>
