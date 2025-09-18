@@ -121,7 +121,7 @@ const Footer = () => {
 
           {/* Contact Details - Right side */}
           <div className="lg:col-span-1 animate-fade-in" style={{ animationDelay: '0.8s' }}>
-            <h4 className="text-lg font-semibold mb-6">Contact Details</h4>
+            <h4 className="text-lg font-semibold mb-6">Contact</h4>
             <div className="space-y-4">
               <div className="flex items-start space-x-3 text-sm">
                 <MapPin className="h-4 w-4 mt-1 text-accent flex-shrink-0" />
