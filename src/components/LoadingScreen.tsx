@@ -144,7 +144,7 @@ const LoadingScreen = ({ isVisible, progress = 0 }: LoadingScreenProps) => {
           {/* Loading text and progress */}
           <div className="text-center">
             <div className="text-primary font-semibold text-xl mb-4 animate-fade-in">
-              Loading Experience...
+              Loading ...
             </div>
             
             {/* Progress bar */}
