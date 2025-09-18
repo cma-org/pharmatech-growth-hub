@@ -21,6 +21,20 @@ const Footer = () => {
     { name: "Consulting Services", href: "/consulting" },
   ];
 
+  const services = [
+    { name: "FirstLeap Program", href: "/training/firstleap" },
+    { name: "Uplift Program", href: "/training/uplift" },
+    { name: "Leadership Program", href: "/training/leadership" },
+    { name: "Re-Start Program", href: "/training/restart" },
+  ];
+
+  const resources = [
+    { name: "Case Studies", href: "/resources/case-studies" },
+    { name: "Whitepapers", href: "/resources/whitepapers" },
+    { name: "Webinars", href: "/events" },
+    { name: "Blog", href: "/resources/blog" },
+  ];
+
   const legal = [
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Terms of Service", href: "/terms" },
@@ -68,9 +82,46 @@ const Footer = () => {
               </ul>
             </div>
 
+            {/* Training Programs */}
+            <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              <h4 className="text-lg font-semibold mb-6">Training Programs</h4>
+              <ul className="space-y-3">
+                {services.map((service) => (
+                  <li key={service.name}>
+                    <Link 
+                      to={service.href}
+                      className="text-primary-foreground/80 hover:text-accent hover:translate-x-1 transition-all duration-200 text-sm flex items-center group"
+                    >
+                      <ArrowRight className="h-3 w-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      {service.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Resources */}
+            <div className="animate-fade-in" style={{ animationDelay: '0.6s' }}>
+              <h4 className="text-lg font-semibold mb-6">Resources</h4>
+              <ul className="space-y-3">
+                {resources.map((resource) => (
+                  <li key={resource.name}>
+                    <Link 
+                      to={resource.href}
+                      className="text-primary-foreground/80 hover:text-accent hover:translate-x-1 transition-all duration-200 text-sm flex items-center group"
+                    >
+                      <ArrowRight className="h-3 w-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      {resource.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
           {/* Contact Details - Right side */}
           <div className="lg:col-span-1 animate-fade-in" style={{ animationDelay: '0.8s' }}>
-            <h4 className="text-lg font-semibold mb-6">Contact</h4>
+            <h4 className="text-lg font-semibold mb-6">Contact Details</h4>
             <div className="space-y-4">
               <div className="flex items-start space-x-3 text-sm">
                 <MapPin className="h-4 w-4 mt-1 text-accent flex-shrink-0" />
