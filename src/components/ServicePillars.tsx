@@ -18,26 +18,10 @@ import CountingNumber from "@/components/CountingNumber";
 const ServicePillars = () => {
   const pillars = [
     {
-      icon: GraduationCap,
-      title: "Training & Development",
-      subtitle: "Practice-first GMP & GxP Learning",
-      description: "Comprehensive training programs across career stages with signature programs: FirstLeap, Uplift, Leadership, and Re-Start.",
-      image: trainingImage,
-      features: [
-        "10,000+ Professionals Trained",
-        "4 Signature Programs",
-        "GMP/GxP Certifications",
-        "Career-stage Aligned Learning"
-      ],
-      link: "/training",
-      cta: "Explore Programs",
-      color: "primary"
-    },
-    {
       icon: Shield,
-      title: "Auditing & Quality (CQO)",
+      title: "Auditing",
       subtitle: "Regulatory Readiness & Compliance",
-      description: "Product-specific audits aligned to current guidelines with CAPA support. Internal, vendor, and regulatory readiness assessments.",
+      description: "Regulatory readiness assessments, internal audits, vendor audits, and gap analysis aligned with international standards.",
       image: auditImage,
       features: [
         "USFDA, EU-GMP, WHO Coverage",
@@ -47,38 +31,86 @@ const ServicePillars = () => {
       ],
       link: "/auditing",
       cta: "Request Audit",
-      color: "accent"
-    },
-    {
-      icon: Users,
-      title: "Consulting Services",
-      subtitle: "Inspection Readiness & SME Support",
-      description: "Mock audits, SME readiness, CAPA planning, and Computer System Validation (CSV) that drive compliance outcomes.",
-      image: auditImage,
-      features: [
-        "Mock Audits & Readiness",
-        "SME Enablement",
-        "CSV Expertise",
-        "CAPA Planning Support"
-      ],
-      link: "/consulting",
-      cta: "Book Discovery Call",
       color: "primary"
     },
     {
-      icon: Brain,
-      title: "Innovative Products",
-      subtitle: "AI Dashboards & 3D Learning",
-      description: "Revolutionary AI-Integrated Quality Dashboards and 3D Immersive Learning Modules for next-generation pharmaceutical training.",
-      image: aiImage,
+      icon: Users,
+      title: "Consulting",
+      subtitle: "Strategic Quality Systems",
+      description: "Strategic quality systems development, remediation support, and compliance optimization tailored to your operations.",
+      image: auditImage,
       features: [
-        "AI Quality Dashboards",
-        "3D Immersive Learning",
-        "Real-time Insights",
-        "Predictive Analytics"
+        "Quality Systems Development",
+        "Remediation Support",
+        "Compliance Optimization",
+        "Tailored Solutions"
+      ],
+      link: "/consulting",
+      cta: "Book Discovery Call",
+      color: "accent"
+    },
+    {
+      icon: GraduationCap,
+      title: "GxP Training",
+      subtitle: "Customized Training Programs",
+      description: "Customized GxP, GMP, and data integrity training with real-world examples—suitable for all levels of experience.",
+      image: trainingImage,
+      features: [
+        "GxP & GMP Training",
+        "Data Integrity Focus",
+        "Real-world Examples",
+        "All Experience Levels"
+      ],
+      link: "/training",
+      cta: "Explore Programs",
+      color: "primary"
+    },
+    {
+      icon: Users,
+      title: "Talent Management Solutions",
+      subtitle: "GxP-Ready Talent Connection",
+      description: "Connecting organizations with GxP-ready talent for QA, QC, Manufacturing, Validation, and Regulatory Affairs roles.",
+      image: trainingImage,
+      features: [
+        "QA/QC Professionals",
+        "Manufacturing Experts",
+        "Validation Specialists",
+        "Regulatory Affairs Talent"
+      ],
+      link: "/recruitment",
+      cta: "Find Talent",
+      color: "accent"
+    },
+    {
+      icon: Brain,
+      title: "Leadership & Career Mentor",
+      subtitle: "Future-Ready Leadership",
+      description: "The future of your leadership begins with the choices you make today. We help to Unlearn, Learn and Re-learn.",
+      image: trainingImage,
+      features: [
+        "Leadership Development",
+        "Career Mentorship",
+        "Unlearn & Relearn",
+        "Future-Ready Skills"
       ],
       link: "/contact",
-      cta: "Request Demo",
+      cta: "Start Journey",
+      color: "primary"
+    },
+    {
+      icon: Shield,
+      title: "Computer System Validation (CSV)",
+      subtitle: "Digital Systems Compliance",
+      description: "Compliance assurance for software and digital systems under GAMP 5 and data integrity guidelines.",
+      image: aiImage,
+      features: [
+        "GAMP 5 Compliance",
+        "Data Integrity Guidelines",
+        "Software Validation",
+        "Digital Systems Assurance"
+      ],
+      link: "/contact",
+      cta: "Request CSV Support",
       color: "accent"
     }
   ];
