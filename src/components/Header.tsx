@@ -64,7 +64,7 @@ const Header = () => {
               <img 
                 src={axygenLogo} 
                 alt="Axygen Pharmatech - Global Centre of Excellence for GxP Training & Consulting" 
-                className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
+                className="h-16 w-auto transition-transform duration-300 group-hover:scale-105"
               />
             </Link>
           </div>
@@ -129,6 +129,17 @@ const Header = () => {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
+
+            <Link
+              to="/our-work"
+              className={`px-3 py-2 text-sm font-medium transition-smooth rounded-md ${
+                isActive("/our-work")
+                  ? "text-primary bg-primary/5"
+                  : "text-foreground hover:text-primary hover:bg-primary/5"
+              }`}
+            >
+              OUR WORK
+            </Link>
 
             <Link
               to="/about"
@@ -219,6 +230,18 @@ const Header = () => {
                 </Link>
               ))}
             </div>
+
+            <Link
+              to="/our-work"
+              className={`block px-3 py-2 text-sm font-medium transition-smooth rounded-md ${
+                isActive("/our-work")
+                  ? "text-primary bg-primary/5"
+                  : "text-foreground hover:text-primary hover:bg-primary/5"
+              }`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              OUR WORK
+            </Link>
 
             <Link
               to="/about"

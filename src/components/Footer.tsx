@@ -10,7 +10,7 @@ import {
   Facebook,
   ArrowRight
 } from "lucide-react";
-import axygenLogo from "@/assets/axygen-fixity-logo-v2.png";
+import axygenLogo from "@/assets/axygen-logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -43,7 +43,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-foreground text-primary-foreground">
+    <footer className="bg-gradient-primary text-primary-foreground">
       {/* Main footer content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid lg:grid-cols-5 md:grid-cols-2 gap-8 lg:gap-12">
@@ -53,7 +53,7 @@ const Footer = () => {
               <img 
                 src={axygenLogo} 
                 alt="Axygen Pharmatech - Global Centre of Excellence for GxP Training & Consulting" 
-                className="h-16 w-auto mb-4 brightness-0 hover:scale-105 transition-transform duration-300"
+                className="h-16 w-auto mb-4 hover:scale-105 transition-transform duration-300"
               />
             </div>
             <p className="text-primary-foreground/80 mb-6 leading-relaxed">

@@ -19,6 +19,7 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Cookies from "./pages/Cookies";
 import Accessibility from "./pages/Accessibility";
+import OurWork from "./pages/OurWork";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -40,6 +41,7 @@ const App = () => (
           <Route path="/csv" element={<CSV />} />
           <Route path="/products/3d-learning" element={<Product3DLearning />} />
           <Route path="/products/ai-dashboard" element={<ProductAIDashboard />} />
+          <Route path="/our-work" element={<OurWork />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
