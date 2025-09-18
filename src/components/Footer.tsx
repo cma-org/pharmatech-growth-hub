@@ -144,7 +144,7 @@ const Footer = () => {
                 </a>
               </div>
               <div className="flex items-center space-x-3 text-sm">
-                <Mail className="h-4 w-4 text-accent" />
+                <Mail className="h-4 w-4 text-accent flex-shrink-0" />
                 <a 
                   href="mailto:hello@axygenpharmatech.com" 
                   className="text-primary-foreground/80 hover:text-accent transition-colors"
