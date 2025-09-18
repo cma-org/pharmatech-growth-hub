@@ -53,7 +53,7 @@ const Footer = () => {
               <img 
                 src={axygenLogo} 
                 alt="Axygen Pharmatech - Global Centre of Excellence for GxP Training & Consulting" 
-                className="h-16 w-auto mb-4 brightness-0 invert hover:scale-105 transition-transform duration-300"
+                className="h-16 w-auto mb-4 brightness-0 hover:scale-105 transition-transform duration-300"
               />
             </div>
             <p className="text-primary-foreground/80 mb-6 leading-relaxed">
