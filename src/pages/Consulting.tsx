@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { CheckCircle, Users, Target, Globe, Award, TrendingUp } from "lucide-react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const Consulting = () => {
   const consultingServices = [
@@ -47,7 +49,9 @@ const Consulting = () => {
   ];
 
   return (
-    <main className="min-h-screen bg-gradient-subtle">
+    <div className="min-h-screen">
+      <Header />
+      <main className="min-h-screen bg-gradient-subtle">
       {/* Hero Section */}
       <section className="bg-gradient-hero py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -168,7 +172,9 @@ const Consulting = () => {
           </div>
         </div>
       </section>
-    </main>
+      </main>
+      <Footer />
+    </div>
   );
 };
 
