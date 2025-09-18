@@ -67,7 +67,6 @@ const Footer = () => {
                 ))}
               </ul>
             </div>
-          </div>
 
           {/* Contact Details - Right side */}
           <div className="lg:col-span-1 animate-fade-in" style={{ animationDelay: '0.8s' }}>
