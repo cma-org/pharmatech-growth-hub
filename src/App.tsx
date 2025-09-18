@@ -13,6 +13,7 @@ import Consulting from "./pages/Consulting";
 import Recruitment from "./pages/Recruitment";
 import Leadership from "./pages/Leadership";
 import CSV from "./pages/CSV";
+import Products from "./pages/Products";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Cookies from "./pages/Cookies";
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/recruitment" element={<Recruitment />} />
           <Route path="/leadership" element={<Leadership />} />
           <Route path="/csv" element={<CSV />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
