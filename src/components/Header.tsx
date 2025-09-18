@@ -23,7 +23,13 @@ const Header = () => {
     { name: "Computer System Validation", href: "/csv" },
   ];
 
+  const productsItems = [
+    { name: "3D Immersive Learning", href: "/products/3d-learning" },
+    { name: "AI Quality Dashboards", href: "/products/ai-dashboard" },
+  ];
+
   const isServicesActive = servicesItems.some(item => location.pathname === item.href);
+  const isProductsActive = productsItems.some(item => location.pathname === item.href);
 
   const isActive = (href: string) => location.pathname === href;
 
@@ -100,16 +106,29 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Link
-              to="/products"
-              className={`px-3 py-2 text-sm font-medium transition-smooth rounded-md ${
-                isActive("/products")
+            {/* Products Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className={`flex items-center space-x-1 px-3 py-2 text-sm font-medium transition-smooth rounded-md ${
+                isProductsActive
                   ? "text-primary bg-primary/5"
                   : "text-foreground hover:text-primary hover:bg-primary/5"
-              }`}
-            >
-              PRODUCTS
-            </Link>
+              }`}>
+                <span>PRODUCTS</span>
+                <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-background border border-border shadow-lg z-50">
+                {productsItems.map((item) => (
+                  <DropdownMenuItem key={item.name} asChild>
+                    <Link
+                      to={item.href}
+                      className="w-full px-4 py-2 text-sm hover:bg-primary/5 hover:text-primary transition-smooth"
+                    >
+                      {item.name}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
 
             <Link
               to="/about"
@@ -182,17 +201,24 @@ const Header = () => {
               ))}
             </div>
 
-            <Link
-              to="/products"
-              className={`block px-3 py-2 text-sm font-medium transition-smooth rounded-md ${
-                isActive("/products")
-                  ? "text-primary bg-primary/5"
-                  : "text-foreground hover:text-primary hover:bg-primary/5"
-              }`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              PRODUCTS
-            </Link>
+            {/* Products Section */}
+            <div className="pt-2">
+              <div className="px-3 py-2 text-sm font-medium text-primary">PRODUCTS</div>
+              {productsItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`block px-6 py-2 text-sm font-medium transition-smooth rounded-md ${
+                    isActive(item.href)
+                      ? "text-primary bg-primary/5"
+                      : "text-foreground hover:text-primary hover:bg-primary/5"
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
 
             <Link
               to="/about"
