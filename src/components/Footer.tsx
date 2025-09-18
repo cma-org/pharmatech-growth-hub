@@ -19,7 +19,6 @@ const Footer = () => {
     { name: "Training Programs", href: "/training" },
     { name: "Quality Auditing", href: "/auditing" },
     { name: "Consulting Services", href: "/consulting" },
-    { name: "AI Products", href: "/products" },
   ];
 
   const services = [
