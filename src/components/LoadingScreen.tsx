@@ -20,18 +20,23 @@ const HexagonCSS = ({
   
   return (
     <div 
-      className="absolute w-24 h-24 flex items-center justify-center text-white text-xs font-bold text-center"
+      className="absolute w-28 h-28 flex items-center justify-center text-white text-xs font-bold text-center"
       style={{
-        background: `linear-gradient(135deg, ${color}, ${color}aa)`,
+        background: `linear-gradient(135deg, ${color}, ${color}dd)`,
         clipPath: 'polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)',
-        transform: `rotate(${angle}deg) translateY(-120px) rotate(-${angle}deg)`,
-        animation: `orbit 4s linear infinite`,
+        left: '50%',
+        top: '50%',
+        marginLeft: '-56px',
+        marginTop: '-56px',
+        transformOrigin: '50% 50%',
+        animation: `orbit 6s linear infinite`,
         animationDelay: `${delay}s`,
         backdropFilter: 'blur(10px)',
-        border: '1px solid rgba(255,255,255,0.2)'
+        border: '1px solid rgba(255,255,255,0.3)',
+        boxShadow: '0 4px 20px rgba(0,0,0,0.2)'
       }}
     >
-      <span className="text-[10px] leading-tight">{text}</span>
+      <span className="text-[9px] leading-tight font-semibold">{text.replace('\n', ' ')}</span>
     </div>
   );
 };
@@ -93,16 +98,11 @@ const LoadingScreen = ({ isVisible, progress = 0 }: LoadingScreenProps) => {
       <style>{`
         @keyframes orbit {
           from {
-            transform: rotate(0deg) translateY(-120px) rotate(0deg);
+            transform: rotate(0deg) translateY(-140px) rotate(0deg);
           }
           to {
-            transform: rotate(360deg) translateY(-120px) rotate(-360deg);
+            transform: rotate(360deg) translateY(-140px) rotate(-360deg);
           }
-        }
-        
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-20px) rotate(180deg); }
         }
       `}</style>
       
@@ -118,9 +118,9 @@ const LoadingScreen = ({ isVisible, progress = 0 }: LoadingScreenProps) => {
         <div className="relative flex flex-col items-center justify-center">
           {/* Hexagon orbit container */}
           <div className="relative w-80 h-80 mb-8">
-            {/* Center logo */}
+            {/* Center logo - Fixed position */}
             <div className="absolute inset-0 flex items-center justify-center z-10">
-              <div className="relative bg-white/90 backdrop-blur-sm rounded-full p-8 shadow-2xl" style={{ animation: 'float 3s ease-in-out infinite' }}>
+              <div className="relative bg-white/95 backdrop-blur-sm rounded-full p-8 shadow-2xl border border-white/20">
                 <img 
                   src={axygenLogo} 
                   alt="Axygen Pharmatech" 
