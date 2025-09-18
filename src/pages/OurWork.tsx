@@ -4,6 +4,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { 
   Building2, 
   Users, 
@@ -203,9 +204,11 @@ const OurWork = () => {
               Let us help you achieve regulatory excellence and operational efficiency with our proven methodologies and expert team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" className="hover-scale">
-                <link to="/contact">Start Your Project</link>
-                <ArrowRight className="ml-2 h-5 w-5" />
+              <Button size="lg" variant="secondary" className="hover-scale" asChild>
+                <Link to="/contact">
+                  Start Your Project
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
             </div>
           </div>
