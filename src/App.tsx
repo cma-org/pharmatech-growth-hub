@@ -11,6 +11,8 @@ import Contact from "./pages/Contact";
 import Auditing from "./pages/Auditing";
 import Consulting from "./pages/Consulting";
 import Recruitment from "./pages/Recruitment";
+import Leadership from "./pages/Leadership";
+import CSV from "./pages/CSV";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Cookies from "./pages/Cookies";
@@ -32,6 +34,8 @@ const App = () => (
           <Route path="/auditing" element={<Auditing />} />
           <Route path="/consulting" element={<Consulting />} />
           <Route path="/recruitment" element={<Recruitment />} />
+          <Route path="/leadership" element={<Leadership />} />
+          <Route path="/csv" element={<CSV />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />

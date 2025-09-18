@@ -16,9 +16,11 @@ const Header = () => {
 
   const servicesItems = [
     { name: "Auditing", href: "/auditing" },
-    { name: "Training", href: "/training" },
     { name: "Consulting", href: "/consulting" },
-    { name: "Recruitment", href: "/recruitment" },
+    { name: "GxP Training", href: "/training" },
+    { name: "Talent Management", href: "/recruitment" },
+    { name: "Leadership & Career Mentor", href: "/leadership" },
+    { name: "Computer System Validation", href: "/csv" },
   ];
 
   const isServicesActive = servicesItems.some(item => location.pathname === item.href);
