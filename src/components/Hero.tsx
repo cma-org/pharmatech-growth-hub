@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { CheckCircle, Users, Award, Globe } from "lucide-react";
 import heroImage from "@/assets/hero-pharma-lab.jpg";
-import Hero3DVariant from "@/components/Hero3DVariants";
+import Hero3DHexagons from "@/components/Hero3DHexagons";
 
 const Hero = () => {
   const achievements = [
@@ -66,7 +66,7 @@ const Hero = () => {
           </div>
 
           <div className="lg:flex justify-end items-center hidden animate-fade-in" style={{ animationDelay: '1s' }}>
-            <Hero3DVariant type="particles" />
+            <Hero3DHexagons />
           </div>
         </div>
       </div>
