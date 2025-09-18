@@ -22,10 +22,10 @@ const Footer = () => {
   ];
 
   const services = [
-    { name: "FirstLeap Program", href: "/training/firstleap" },
-    { name: "Uplift Program", href: "/training/uplift" },
-    { name: "Leadership Program", href: "/training/leadership" },
-    { name: "Re-Start Program", href: "/training/restart" },
+    { name: "FirstLeap Program", href: "/training" },
+    { name: "Uplift Program", href: "/training" },
+    { name: "Leadership Program", href: "/training" },
+    { name: "Re-Start Program", href: "/training" },
   ];
 
   const resources = [
