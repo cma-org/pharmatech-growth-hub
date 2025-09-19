@@ -31,6 +31,8 @@ const App = () => {
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
+    // Reset body background after loading
+    document.body.style.background = "";
   };
 
   console.log("App render - isLoading:", isLoading);
