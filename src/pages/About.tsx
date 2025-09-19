@@ -199,7 +199,7 @@ const About = () => {
 
           {/* Values Section */}
           <div className="text-center mb-16">
-            <h3 className="text-2xl font-bold text-foreground mb-4">Our Values</h3>
+            <h3 className="text-4xl font-bold text-foreground mb-4">Our Values</h3>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Built on decades of pharmaceutical industry experience, our values guide every solution we deliver.
             </p>
