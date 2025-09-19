@@ -106,12 +106,6 @@ const ProductAIDashboard = () => {
               visualization tools for sound, scientific, and data-driven decision making in AI era.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
-                <Link to="/contact">
-                  <Play className="mr-2 h-4 w-4" />
-                  Watch Demo
-                </Link>
-              </Button>
               <Button size="lg" variant="outline" className="border-card-border" asChild>
                 <Link to="/contact">Request Trial</Link>
               </Button>
