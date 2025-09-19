@@ -1,262 +1,213 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Sphere, Box, Cylinder, Torus } from '@react-three/drei';
 import { Mesh, Group } from 'three';
 import CountingNumber from './CountingNumber';
 
-// Medical Capsule with DNA Helix Animation
-const MedicalCapsuleAnimation = () => {
+// Pharmaceutical Molecule Animation - Updated for pharma industry
+const PharmaMolecule = () => {
   const groupRef = useRef<Group>(null);
-  const capsuleTopRef = useRef<Group>(null);
-  const capsuleBottomRef = useRef<Group>(null);
-  const dnaMRef = useRef<Group>(null);
-  const moleculesRef = useRef<Group>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-
-  // Check for reduced motion preference
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(mediaQuery.matches);
-    
-    const handleChange = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
-
+  const moleculeRef = useRef<Group>(null);
+  const compoundsRef = useRef<Group>(null);
+  const particlesRef = useRef<Group>(null);
+  
   useFrame((state) => {
     const time = state.clock.elapsedTime;
-    const motionScale = prefersReducedMotion ? 0.3 : 1;
-
+    
     if (groupRef.current) {
-      // On-load spring pop and idle micro-tilt + bob
-      const springPop = Math.max(0, 1 - Math.exp(-time * 2)) * (1 + Math.sin(time * 8) * 0.1 * Math.exp(-time));
-      const microTilt = Math.sin(time * 0.8) * 0.1 * motionScale; // ±6° in radians
-      const bob = Math.sin(time * 1.2) * 0.1 * motionScale; // ±10px equivalent
-      
-      groupRef.current.scale.setScalar(springPop);
-      groupRef.current.rotation.x = microTilt;
-      groupRef.current.position.y = bob;
-
-      // Hover 3D tilt toward cursor
-      if (isHovered) {
-        const tiltX = (mousePosition.y - 0.5) * 0.3 * motionScale;
-        const tiltY = (mousePosition.x - 0.5) * 0.3 * motionScale;
-        groupRef.current.rotation.x += tiltX;
-        groupRef.current.rotation.y += tiltY;
-      }
+      groupRef.current.rotation.y = time * 0.15;
+      groupRef.current.position.y = Math.sin(time * 0.4) * 0.1;
     }
-
-    // Capsule splitting animation
-    if (capsuleTopRef.current && capsuleBottomRef.current) {
-      const splitAmount = Math.sin(time * 0.5 + Math.PI/2) * 0.3 + 0.3;
-      capsuleTopRef.current.position.y = splitAmount * motionScale;
-      capsuleBottomRef.current.position.y = -splitAmount * motionScale;
-      capsuleTopRef.current.rotation.z = splitAmount * 0.1 * motionScale;
-      capsuleBottomRef.current.rotation.z = -splitAmount * 0.1 * motionScale;
+    
+    if (moleculeRef.current) {
+      moleculeRef.current.rotation.x = Math.sin(time * 0.3) * 0.1;
+      moleculeRef.current.rotation.z = Math.cos(time * 0.25) * 0.1;
     }
-
-    // DNA helix slow rotate with gentle rise/fall
-    if (dnaMRef.current) {
-      dnaMRef.current.rotation.y = time * 0.3 * motionScale;
-      dnaMRef.current.position.y = Math.sin(time * 0.6) * 0.2 * motionScale;
-      dnaMRef.current.scale.setScalar(Math.sin(time * 0.5 + Math.PI/2) * 0.5 + 0.5);
+    
+    // Animate floating compounds
+    if (compoundsRef.current) {
+      compoundsRef.current.children.forEach((child, index) => {
+        child.position.y += Math.sin(time * 1.5 + index * 0.5) * 0.002;
+        child.rotation.x = time * (0.2 + index * 0.05);
+        child.rotation.y = time * (0.15 + index * 0.03);
+      });
     }
-
-    // Molecules slow orbital drift (staggered loops)
-    if (moleculesRef.current) {
-      moleculesRef.current.children.forEach((child, index) => {
-        const offset = index * 0.8;
-        const radius = 2 + Math.sin(time * 0.3 + offset) * 0.5;
-        const angle = time * 0.2 + offset;
-        const height = Math.sin(time * 0.4 + offset) * 0.3;
-        
-        child.position.x = Math.cos(angle) * radius * motionScale;
-        child.position.z = Math.sin(angle) * radius * motionScale;
-        child.position.y = height * motionScale;
-        child.rotation.y = time * (0.5 + index * 0.1) * motionScale;
+    
+    // Animate particles
+    if (particlesRef.current) {
+      particlesRef.current.children.forEach((child, index) => {
+        child.position.y += Math.sin(time * 2 + index) * 0.001;
+        child.scale.setScalar(1 + Math.sin(time * 3 + index) * 0.2);
       });
     }
   });
 
-  // DNA helix structure
-  const createDNAHelix = () => {
-    const points = [];
-    const connections = [];
-    const helixHeight = 2;
-    const helixRadius = 0.3;
-    const turns = 3;
-    const pointsPerTurn = 8;
-    const totalPoints = turns * pointsPerTurn;
-
-    for (let i = 0; i < totalPoints; i++) {
-      const angle = (i / pointsPerTurn) * Math.PI * 2;
-      const y = (i / totalPoints) * helixHeight - helixHeight / 2;
-      
-      // First strand
-      points.push({
-        position: [
-          Math.cos(angle) * helixRadius,
-          y,
-          Math.sin(angle) * helixRadius
-        ] as [number, number, number],
-        strand: 0
-      });
-      
-      // Second strand (opposite)
-      points.push({
-        position: [
-          Math.cos(angle + Math.PI) * helixRadius,
-          y,
-          Math.sin(angle + Math.PI) * helixRadius
-        ] as [number, number, number],
-        strand: 1
-      });
-
-      // Base pair connections
-      if (i % 2 === 0) {
-        connections.push({
-          start: points[points.length - 2].position,
-          end: points[points.length - 1].position
-        });
-      }
-    }
-
-    return { points, connections };
+  // Define chemical elements with realistic colors
+  const elements = {
+    carbon: { color: '#2D2D2D', size: 0.15, glow: '#404040' },
+    oxygen: { color: '#FF3333', size: 0.12, glow: '#FF6666' },
+    nitrogen: { color: '#3366FF', size: 0.13, glow: '#6699FF' },
+    hydrogen: { color: '#FFFFFF', size: 0.08, glow: '#CCCCCC' },
+    sulfur: { color: '#FFD700', size: 0.16, glow: '#FFED4E' },
+    phosphorus: { color: '#FF6600', size: 0.14, glow: '#FF9944' }
   };
 
-  const { points: dnaPoints, connections: dnaConnections } = createDNAHelix();
+  // Create main molecular structure (drug compound)
+  const mainMolecule = [
+    // Central ring structure
+    { position: [0, 0, 0] as [number, number, number], element: 'carbon', bonds: [1, 5] },
+    { position: [0.8, 0, 0.6] as [number, number, number], element: 'carbon', bonds: [0, 2] },
+    { position: [1.6, 0, 0] as [number, number, number], element: 'nitrogen', bonds: [1, 3] },
+    { position: [1.6, 0, -0.8] as [number, number, number], element: 'carbon', bonds: [2, 4] },
+    { position: [0.8, 0, -1.4] as [number, number, number], element: 'oxygen', bonds: [3, 5] },
+    { position: [0, 0, -0.8] as [number, number, number], element: 'carbon', bonds: [4, 0] },
+    
+    // Side chains
+    { position: [-0.8, 0.8, 0] as [number, number, number], element: 'nitrogen', bonds: [0] },
+    { position: [2.4, 0.8, 0.6] as [number, number, number], element: 'sulfur', bonds: [2] },
+    { position: [0.8, -0.8, -2.2] as [number, number, number], element: 'phosphorus', bonds: [4] },
+    
+    // Hydrogens
+    { position: [-0.4, 1.2, 0.4] as [number, number, number], element: 'hydrogen', bonds: [6] },
+    { position: [3.0, 1.2, 0.2] as [number, number, number], element: 'hydrogen', bonds: [7] },
+    { position: [1.4, -1.2, -2.8] as [number, number, number], element: 'hydrogen', bonds: [8] }
+  ];
 
-  // Floating molecules
-  const molecules = [];
-  for (let i = 0; i < 12; i++) {
-    molecules.push({
-      id: i,
-      initialRadius: 2 + Math.random() * 1.5,
-      initialAngle: (i / 12) * Math.PI * 2,
-      size: 0.08 + Math.random() * 0.04,
-      color: i % 3 === 0 ? '#3b82f6' : i % 3 === 1 ? '#1e40af' : '#60a5fa'
+  // Create bonds between atoms
+  const bonds = [];
+  mainMolecule.forEach((atom, atomIndex) => {
+    atom.bonds?.forEach(bondIndex => {
+      if (bondIndex > atomIndex) { // Avoid duplicate bonds
+        const atom1 = mainMolecule[atomIndex];
+        const atom2 = mainMolecule[bondIndex];
+        const midpoint = [
+          (atom1.position[0] + atom2.position[0]) / 2,
+          (atom1.position[1] + atom2.position[1]) / 2,
+          (atom1.position[2] + atom2.position[2]) / 2
+        ] as [number, number, number];
+        
+        bonds.push({
+          midpoint,
+          atom1: atom1.position,
+          atom2: atom2.position
+        });
+      }
+    });
+  });
+
+  // Create floating compound molecules
+  const compounds = [];
+  for (let i = 0; i < 8; i++) {
+    const angle = (i / 8) * Math.PI * 2;
+    const radius = 3 + Math.random() * 2;
+    compounds.push({
+      position: [
+        Math.cos(angle) * radius,
+        (Math.random() - 0.5) * 3,
+        Math.sin(angle) * radius
+      ] as [number, number, number],
+      element: Object.keys(elements)[Math.floor(Math.random() * Object.keys(elements).length)] as keyof typeof elements,
+      rotationSpeed: 0.5 + Math.random() * 0.5
+    });
+  }
+
+  // Create energy particles
+  const particles = [];
+  for (let i = 0; i < 30; i++) {
+    particles.push({
+      position: [
+        (Math.random() - 0.5) * 8,
+        (Math.random() - 0.5) * 4,
+        (Math.random() - 0.5) * 8
+      ] as [number, number, number],
+      size: 0.03 + Math.random() * 0.05,
+      color: `hsl(${180 + Math.random() * 60}, 80%, ${60 + Math.random() * 20}%)`
     });
   }
 
   return (
-    <group 
-      ref={groupRef}
-      onPointerMove={(e) => {
-        setMousePosition({
-          x: (e.clientX / window.innerWidth),
-          y: (e.clientY / window.innerHeight)
-        });
-      }}
-      onPointerEnter={() => setIsHovered(true)}
-      onPointerLeave={() => setIsHovered(false)}
-    >
-      {/* Capsule Top Half */}
-      <group ref={capsuleTopRef}>
-        <Sphere position={[0, 0.25, 0]} args={[0.4, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2]}>
-          <meshPhysicalMaterial
-            color="#e0f2fe"
-            metalness={0.9}
-            roughness={0.1}
-            clearcoat={1}
-            clearcoatRoughness={0.1}
-            transmission={0.1}
-            emissive="#3b82f6"
-            emissiveIntensity={0.1}
-          />
-        </Sphere>
-      </group>
-
-      {/* Capsule Bottom Half */}
-      <group ref={capsuleBottomRef}>
-        <Sphere position={[0, -0.25, 0]} args={[0.4, 32, 16, 0, Math.PI * 2, Math.PI / 2, Math.PI]}>
-          <meshPhysicalMaterial
-            color="#ffffff"
-            metalness={0.8}
-            roughness={0.2}
-            clearcoat={1}
-            clearcoatRoughness={0.1}
-            transmission={0.05}
-            emissive="#60a5fa"
-            emissiveIntensity={0.05}
-          />
-        </Sphere>
-      </group>
-
-      {/* DNA Helix */}
-      <group ref={dnaMRef}>
-        {/* DNA backbone spheres */}
-        {dnaPoints.map((point, index) => (
-          <Sphere key={`dna-${index}`} position={point.position} args={[0.03, 8, 8]}>
-            <meshPhysicalMaterial
-              color={point.strand === 0 ? "#3b82f6" : "#1e40af"}
-              metalness={0.7}
-              roughness={0.3}
-              emissive={point.strand === 0 ? "#3b82f6" : "#1e40af"}
-              emissiveIntensity={0.4}
-              transparent={true}
-              opacity={0.8}
-            />
-          </Sphere>
-        ))}
-        
-        {/* Base pair connections */}
-        {dnaConnections.map((connection, index) => {
-          const distance = Math.sqrt(
-            Math.pow(connection.end[0] - connection.start[0], 2) +
-            Math.pow(connection.end[1] - connection.start[1], 2) +
-            Math.pow(connection.end[2] - connection.start[2], 2)
-          );
-          const midpoint = [
-            (connection.start[0] + connection.end[0]) / 2,
-            (connection.start[1] + connection.end[1]) / 2,
-            (connection.start[2] + connection.end[2]) / 2
-          ] as [number, number, number];
-
+    <group ref={groupRef}>
+      {/* Main molecular structure */}
+      <group ref={moleculeRef}>
+        {/* Atoms */}
+        {mainMolecule.map((atom, index) => {
+          const element = elements[atom.element as keyof typeof elements];
           return (
-            <Cylinder
-              key={`connection-${index}`}
-              position={midpoint}
-              args={[0.015, 0.015, distance, 6]}
+            <Sphere key={`atom-${index}`} position={atom.position} args={[element.size, 16, 16]}>
+              <meshStandardMaterial 
+                color={element.color} 
+                metalness={0.7} 
+                roughness={0.3}
+                emissive={element.glow}
+                emissiveIntensity={0.2}
+              />
+            </Sphere>
+          );
+        })}
+        
+        {/* Chemical bonds */}
+        {bonds.map((bond, index) => {
+          const distance = Math.sqrt(
+            Math.pow(bond.atom2[0] - bond.atom1[0], 2) +
+            Math.pow(bond.atom2[1] - bond.atom1[1], 2) +
+            Math.pow(bond.atom2[2] - bond.atom1[2], 2)
+          );
+          
+          return (
+            <Cylinder 
+              key={`bond-${index}`} 
+              position={bond.midpoint} 
+              args={[0.03, 0.03, distance, 8]}
               rotation={[
-                Math.atan2(connection.end[1] - connection.start[1], 
-                  Math.sqrt(Math.pow(connection.end[0] - connection.start[0], 2) + 
-                           Math.pow(connection.end[2] - connection.start[2], 2))),
-                Math.atan2(connection.end[0] - connection.start[0], connection.end[2] - connection.start[2]),
+                Math.atan2(bond.atom2[1] - bond.atom1[1], Math.sqrt(Math.pow(bond.atom2[0] - bond.atom1[0], 2) + Math.pow(bond.atom2[2] - bond.atom1[2], 2))),
+                Math.atan2(bond.atom2[0] - bond.atom1[0], bond.atom2[2] - bond.atom1[2]),
                 0
               ]}
             >
-              <meshPhysicalMaterial
-                color="#60a5fa"
-                metalness={0.8}
+              <meshStandardMaterial 
+                color="#CCCCCC" 
+                metalness={0.8} 
                 roughness={0.2}
-                emissive="#60a5fa"
-                emissiveIntensity={0.3}
-                transparent={true}
-                opacity={0.7}
+                emissive="#666666"
+                emissiveIntensity={0.1}
               />
             </Cylinder>
           );
         })}
       </group>
 
-      {/* Floating Molecules */}
-      <group ref={moleculesRef}>
-        {molecules.map((molecule) => (
-          <Sphere
-            key={molecule.id}
-            position={[molecule.initialRadius, 0, 0]}
-            args={[molecule.size, 16, 16]}
-          >
-            <meshPhysicalMaterial
-              color={molecule.color}
-              metalness={0.9}
-              roughness={0.1}
-              emissive={molecule.color}
-              emissiveIntensity={0.3}
+      {/* Floating compound molecules */}
+      <group ref={compoundsRef}>
+        {compounds.map((compound, index) => {
+          const element = elements[compound.element];
+          return (
+            <Sphere key={`compound-${index}`} position={compound.position} args={[element.size * 0.7, 12, 12]}>
+              <meshStandardMaterial 
+                color={element.color} 
+                metalness={0.9} 
+                roughness={0.1}
+                emissive={element.glow}
+                emissiveIntensity={0.3}
+                transparent={true}
+                opacity={0.8}
+              />
+            </Sphere>
+          );
+        })}
+      </group>
+
+      {/* Energy particles */}
+      <group ref={particlesRef}>
+        {particles.map((particle, index) => (
+          <Sphere key={`particle-${index}`} position={particle.position} args={[particle.size, 8, 8]}>
+            <meshStandardMaterial 
+              color={particle.color} 
+              metalness={1.0} 
+              roughness={0.0}
+              emissive={particle.color}
+              emissiveIntensity={0.6}
               transparent={true}
-              opacity={0.8}
+              opacity={0.7}
             />
           </Sphere>
         ))}
@@ -361,18 +312,17 @@ const GeometricTransform = () => {
 
 // Main Scene Component
 const Scene3D = ({ animationType }: { animationType: 'molecule' | 'dna' | 'particles' | 'geometric' }) => {
-  console.log('Scene3D rendering with animation type:', animationType);
   const renderAnimation = () => {
     switch (animationType) {
       case 'dna':
       case 'molecule':
-        return <MedicalCapsuleAnimation />;
+        return <PharmaMolecule />;
       case 'particles':
         return <ParticleSystem />;
       case 'geometric':
         return <GeometricTransform />;
       default:
-        return <MedicalCapsuleAnimation />;
+        return <PharmaMolecule />;
     }
   };
 
