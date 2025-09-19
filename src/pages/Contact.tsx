@@ -385,40 +385,6 @@ const Contact = () => {
                   </Card>
                 );
               })}
-
-              {/* Quick Actions */}
-              <Card className="border-card-border bg-card">
-                <CardHeader>
-                  <CardTitle className="text-lg">Quick Actions</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <Button variant="outline" className="w-full justify-start" size="sm">
-                    <Calendar className="mr-2 h-4 w-4" />
-                    Schedule a Call
-                  </Button>
-                  <Button variant="outline" className="w-full justify-start" size="sm">
-                    <FileText className="mr-2 h-4 w-4" />
-                    Download Brochure
-                  </Button>
-                  <Button variant="outline" className="w-full justify-start" size="sm">
-                    <Mail className="mr-2 h-4 w-4" />
-                    Send WhatsApp Message
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* Response Time */}
-              <Card className="border-card-border bg-gradient-card">
-                <CardContent className="pt-6">
-                  <div className="text-center">
-                    <Clock className="h-8 w-8 text-primary mx-auto mb-3" />
-                    <h3 className="font-semibold text-foreground mb-2">Response Time</h3>
-                    <p className="text-sm text-muted-foreground">
-                      We typically respond to all inquiries within 24 hours during business days.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </div>
