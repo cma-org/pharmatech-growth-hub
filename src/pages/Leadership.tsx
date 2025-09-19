@@ -112,14 +112,6 @@ const Leadership = () => {
               The future of your leadership begins with the choices you make today. 
               We help you Unlearn, Learn, and Re-learn for sustainable career growth.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90" asChild>
-                <Link to="/contact">Start Your Journey</Link>
-              </Button>
-              <Button size="lg" variant="outline" className="border-card-border" asChild>
-                <Link to="/contact">Book Discovery Call</Link>
-              </Button>
-            </div>
           </div>
         </div>
       </section>
