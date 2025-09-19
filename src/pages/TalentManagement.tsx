@@ -102,16 +102,6 @@ const TalentManagement = () => {
             <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed">
               Connecting organizations with GxP-ready talent for QA, QC, Manufacturing, Validation, and Regulatory Affairs roles.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" className="text-lg px-8" asChild>
-                <Link to="/contact">
-                  Find Talent <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 border-white text-white hover:bg-white hover:text-primary">
-                View Open Positions
-              </Button>
-            </div>
           </div>
         </section>
 
@@ -209,11 +199,8 @@ const TalentManagement = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" className="text-lg px-8" asChild>
                 <Link to="/contact">
-                  Start Your Search <ArrowRight className="ml-2 h-5 w-5" />
+                  Schedule Consultation <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
-              </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 border-white text-white hover:bg-white hover:text-primary">
-                Schedule Consultation
               </Button>
             </div>
           </div>
