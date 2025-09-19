@@ -60,7 +60,7 @@ const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
           <img
             src={logo}
             alt="Axygen Fixity Logo"
-            className="relative z-10 w-56 h-56 object-contain animate-scale-in drop-shadow-2xl"
+            className="relative z-10 w-auto h-58 object-contain animate-scale-in drop-shadow-2xl"
             style={{ animationDelay: "0.2s" }}
           />
         </div>
