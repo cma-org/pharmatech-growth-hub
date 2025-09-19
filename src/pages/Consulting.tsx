@@ -63,9 +63,6 @@ const Consulting = () => {
               Strategic guidance and expert consulting to navigate complex regulatory landscapes 
               and achieve sustainable compliance excellence.
             </p>
-            <Button size="lg" variant="secondary" className="text-lg px-8 py-4" asChild>
-              <Link to="/contact">Schedule Consultation</Link>
-            </Button>
           </div>
         </div>
       </section>
