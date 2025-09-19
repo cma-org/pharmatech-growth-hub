@@ -6,10 +6,10 @@ import Hero3DVariant from "@/components/Hero3DVariants";
 
 const Hero = () => {
   const achievements = [
-    { icon: Users, text: "10,000+ Professionals Trained", color: "text-accent" },
-    { icon: Award, text: "75+ Years Combined Leadership", color: "text-primary" },
-    { icon: Globe, text: "USFDA, EU-GMP, WHO Expertise", color: "text-accent" },
-    { icon: CheckCircle, text: "Regulatory Inspection Veterans", color: "text-primary" },
+    { icon: CheckCircle, text: "Successfully Led Multiple USFDA, EU Inspections", color: "text-accent" },
+    { icon: Users, text: "10,000+ Professionals Trained in GxP & Compliance", color: "text-primary" },
+    { icon: Award, text: "75+ Years Combined Leadership Experience", color: "text-accent" },
+    { icon: Globe, text: "Built Quality Systems for Greenfield Projects", color: "text-primary" },
   ];
 
   return (

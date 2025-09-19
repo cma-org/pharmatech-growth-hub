@@ -16,39 +16,43 @@ import {
   Heart,
   Lightbulb,
   Shield,
-  Star
+  Star,
+  GraduationCap
 } from "lucide-react";
 
 const About = () => {
   const achievements = [
     {
+      icon: CheckCircle,
+      title: "USFDA & EU Inspections",
+      description: "Successfully led multiple USFDA, EU and other regulatory inspections"
+    },
+    {
       icon: Users,
-      number: 10000,
-      suffix: "+",
-      title: "Professionals Trained",
-      description: "Successfully trained across pharmaceutical and biotech industries"
+      title: "Greenfield Projects", 
+      description: "Built quality systems for greenfield projects across Oral Solid Dosages, Injectables, API, and Biotech facilities"
     },
     {
-      icon: Award,
-      number: 75,
-      suffix: "+",
-      title: "Years Combined Leadership",
-      description: "Decades of hands-on pharmaceutical industry experience"
-    },
-    {
-      icon: Globe,
-      number: 3,
-      suffix: "",
-      title: "Regulatory Standards",
-      description: "USFDA, EU-GMP, and WHO regulatory inspection expertise"
+      icon: GraduationCap,
+      title: "10,000+ Professionals Trained",
+      description: "Trained pharma professionals in GxP, regulatory trends, and compliance strategies"
     },
     {
       icon: TrendingUp,
-      number: 40,
-      suffix: "%",
-      title: "Quality Incident Reduction",
-      description: "Average reduction in quality incidents through our QMS improvements"
+      title: "40% Quality Incident Reduction",
+      description: "Reduced quality incidents and deviations by up to 40% through QMS improvements"
+    },
+    {
+      icon: Award,
+      title: "Faster Market Readiness",
+      description: "Enabled clients to achieve faster regulatory approvals and market readiness"
     }
+  ];
+
+  const keyStats = [
+    { number: 10000, suffix: "+", label: "Professionals Trained" },
+    { number: 75, suffix: "+", label: "Years Combined Leadership" },
+    { number: 40, suffix: "%", label: "Quality Incident Reduction" }
   ];
 
   const values = [
@@ -125,12 +129,21 @@ const About = () => {
             Part of Fixity Group of Companies
           </Badge>
           <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
-            Reliable Partner in Pharmaceutical Quality Excellence
+            AXYGEN PHARMACEUTICAL
           </h1>
-          <p className="text-xl text-primary-foreground/90 mb-8 max-w-4xl mx-auto leading-relaxed">
-            We provide customized GxP solutions that foster compliance, efficiency, and long-term growth. 
-            Our mission is to be your trusted partner in achieving pharmaceutical and biotech quality excellence.
-          </p>
+          <div className="text-xl text-primary-foreground/90 mb-8 max-w-4xl mx-auto leading-relaxed space-y-4">
+            <p>
+              Founded by Quality Assurance veterans with <span className="text-accent font-semibold">75+ years</span> of combined leadership 
+              in the pharmaceutical and biotech industries, AXYGEN PHARMACEUTICAL is a 
+              <span className="text-accent font-semibold"> GxP Training, Auditing, Quality & Consulting</span> company enabling us to scale our 
+              global presence.
+            </p>
+            <p>
+              We bring first-hand knowledge from global regulatory inspections <span className="text-accent font-semibold">(USFDA, 
+              EU-GMP, WHO)</span>, greenfield setups, and complex compliance challenges, 
+              translating that experience into measurable results for our clients.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -139,8 +152,17 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Our Mission & Values
+              Our Mission
             </h2>
+            <div className="bg-gradient-primary rounded-lg p-8 mb-12">
+              <p className="text-xl text-primary-foreground max-w-4xl mx-auto leading-relaxed">
+                To be a reliable and results-oriented partner supporting 
+                pharmaceutical and biotech companies with customized 
+                GxP solutions that foster compliance, efficiency, and 
+                long-term growth.
+              </p>
+            </div>
+            <h3 className="text-2xl font-bold text-foreground mb-4">Our Values</h3>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Built on decades of pharmaceutical industry experience, our values guide every solution we deliver.
             </p>
@@ -183,22 +205,14 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {achievements.map((achievement, index) => {
               const Icon = achievement.icon;
               return (
-                <Card key={index} className="text-center border-card-border bg-card">
+                <Card key={index} className="text-center border-card-border bg-card hover:shadow-hover transition-all duration-300">
                   <CardHeader>
                     <Icon className="h-12 w-12 text-primary mx-auto mb-4" />
-                    <div className="text-4xl font-bold text-primary mb-2">
-                      <CountingNumber 
-                        end={achievement.number} 
-                        suffix={achievement.suffix}
-                        className="text-4xl font-bold text-primary"
-                        duration={2500}
-                      />
-                    </div>
-                    <CardTitle className="text-lg font-bold text-foreground">
+                    <CardTitle className="text-lg font-bold text-foreground mb-2">
                       {achievement.title}
                     </CardTitle>
                   </CardHeader>
@@ -210,6 +224,23 @@ const About = () => {
                 </Card>
               );
             })}
+          </div>
+
+          {/* Key Statistics */}
+          <div className="grid md:grid-cols-3 gap-8 bg-gradient-trust rounded-2xl p-8">
+            {keyStats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-4xl font-bold text-primary mb-2">
+                  <CountingNumber 
+                    end={stat.number} 
+                    suffix={stat.suffix}
+                    className="text-4xl font-bold text-primary"
+                    duration={2500}
+                  />
+                </div>
+                <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -295,29 +326,36 @@ const About = () => {
       <section className="py-20 bg-gradient-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
-              Why Choose Axygen Pharmatech?
+            <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-12">
+              Why Choose Us
             </h2>
-            <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
-              <div className="text-primary-foreground">
-                <div className="text-lg font-semibold mb-2">Decades of Experience</div>
-                <p className="text-sm text-primary-foreground/80">75+ years combined hands-on leadership</p>
+            
+            {/* Hexagonal layout inspired by the uploaded image */}
+            <div className="relative max-w-5xl mx-auto">
+              <div className="grid md:grid-cols-3 gap-8 mb-8">
+                <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-6 border border-primary-foreground/20">
+                  <div className="text-lg font-semibold text-primary-foreground mb-2">Decades of Hands-On Leadership</div>
+                  <p className="text-sm text-primary-foreground/80">75+ years combined experience in pharmaceutical quality and compliance</p>
+                </div>
+                <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-6 border border-primary-foreground/20">
+                  <div className="text-lg font-semibold text-primary-foreground mb-2">Deep Knowledge of Global Regulatory Requirements</div>
+                  <p className="text-sm text-primary-foreground/80">Extensive expertise in USFDA, EU-GMP, WHO standards</p>
+                </div>
+                <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-6 border border-primary-foreground/20">
+                  <div className="text-lg font-semibold text-primary-foreground mb-2">Revolutionary AI & 3D Immersive Learning Models</div>
+                  <p className="text-sm text-primary-foreground/80">Cutting-edge training technology for enhanced learning outcomes</p>
+                </div>
               </div>
-              <div className="text-primary-foreground">
-                <div className="text-lg font-semibold mb-2">Global Regulatory Knowledge</div>
-                <p className="text-sm text-primary-foreground/80">Deep knowledge of international requirements</p>
-              </div>
-              <div className="text-primary-foreground">
-                <div className="text-lg font-semibold mb-2">Scalable Solutions</div>
-                <p className="text-sm text-primary-foreground/80">Cost-effective, sustainable approaches</p>
-              </div>
-              <div className="text-primary-foreground">
-                <div className="text-lg font-semibold mb-2">Innovation</div>
-                <p className="text-sm text-primary-foreground/80">AI & 3D immersive learning models</p>
-              </div>
-              <div className="text-primary-foreground">
-                <div className="text-lg font-semibold mb-2">Commitment</div>
-                <p className="text-sm text-primary-foreground/80">Excellence, integrity, and measurable impact</p>
+              
+              <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-6 border border-primary-foreground/20">
+                  <div className="text-lg font-semibold text-primary-foreground mb-2">Focus on Cost-Effective, Scalable, and Sustainable Solutions</div>
+                  <p className="text-sm text-primary-foreground/80">Tailored approaches that grow with your organization</p>
+                </div>
+                <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-6 border border-primary-foreground/20">
+                  <div className="text-lg font-semibold text-primary-foreground mb-2">Commitment to Excellence, Integrity, and Impact</div>
+                  <p className="text-sm text-primary-foreground/80">Delivering measurable results with unwavering ethical standards</p>
+                </div>
               </div>
             </div>
           </div>
