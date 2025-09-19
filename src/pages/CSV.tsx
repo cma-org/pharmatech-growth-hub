@@ -144,14 +144,6 @@ const CSV = () => {
               Compliance assurance for software and digital systems under GAMP 5 and data integrity guidelines. 
               Ensure your systems meet regulatory requirements with our expert validation services.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90" asChild>
-                <Link to="/contact">Request CSV Assessment</Link>
-              </Button>
-              <Button size="lg" variant="outline" className="border-card-border" asChild>
-                <Link to="/contact">Download CSV Guide</Link>
-              </Button>
-            </div>
           </div>
         </div>
       </section>
