@@ -118,10 +118,10 @@ const WorkShowcaseCarousel = () => {
 
         {/* Carousel Container */}
         <div className="relative">
-          {/* Mobile View - Single Image */}
-          <div className="block md:hidden">
+          {/* Single Image - Full Width */}
+          <div className="w-full">
             <Card className="relative overflow-hidden shadow-card border border-card-border/20 bg-card/5 backdrop-blur-sm">
-              <div className="aspect-[16/8] relative">
+              <div className="aspect-[16/6] relative">
                 <img
                   src={showcaseImages[currentIndex].src}
                   alt={showcaseImages[currentIndex].alt}
@@ -130,27 +130,6 @@ const WorkShowcaseCarousel = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
               </div>
             </Card>
-          </div>
-
-          {/* Desktop View - Three Images */}
-          <div className="hidden md:grid md:grid-cols-3 gap-6">
-            {visibleImages.map((image, index) => (
-              <Card 
-                key={`${currentIndex}-${index}`} 
-                className={`relative overflow-hidden shadow-card border border-card-border/20 bg-card/5 backdrop-blur-sm transition-all duration-700 ${
-                  index === 0 ? 'transform scale-105 ring-2 ring-accent/50' : 'transform scale-95 opacity-80'
-                }`}
-              >
-                <div className="aspect-[16/8] relative">
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="w-full h-full object-cover transition-all duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
-                </div>
-              </Card>
-            ))}
           </div>
 
           {/* Progress Indicators */}
