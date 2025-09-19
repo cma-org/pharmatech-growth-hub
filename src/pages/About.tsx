@@ -363,35 +363,35 @@ const About = () => {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12">
               Why Choose Us
             </h2>
             
             {/* Hexagonal layout inspired by the uploaded image */}
             <div className="relative max-w-5xl mx-auto">
               <div className="grid md:grid-cols-3 gap-8 mb-8">
-                <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-6 border border-primary-foreground/20">
-                  <div className="text-lg font-semibold text-primary-foreground mb-2">Decades of Hands-On Leadership</div>
-                  <p className="text-sm text-primary-foreground/80">75+ years combined experience in pharmaceutical quality and compliance</p>
+                <div className="bg-card backdrop-blur-sm rounded-lg p-6 border border-border shadow-sm hover:shadow-md transition-shadow">
+                  <div className="text-lg font-semibold text-foreground mb-2">Decades of Hands-On Leadership</div>
+                  <p className="text-sm text-muted-foreground">75+ years combined experience in pharmaceutical quality and compliance</p>
                 </div>
-                <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-6 border border-primary-foreground/20">
-                  <div className="text-lg font-semibold text-primary-foreground mb-2">Deep Knowledge of Global Regulatory Requirements</div>
-                  <p className="text-sm text-primary-foreground/80">Extensive expertise in USFDA, EU-GMP, WHO standards</p>
+                <div className="bg-card backdrop-blur-sm rounded-lg p-6 border border-border shadow-sm hover:shadow-md transition-shadow">
+                  <div className="text-lg font-semibold text-foreground mb-2">Deep Knowledge of Global Regulatory Requirements</div>
+                  <p className="text-sm text-muted-foreground">Extensive expertise in USFDA, EU-GMP, WHO standards</p>
                 </div>
-                <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-6 border border-primary-foreground/20">
-                  <div className="text-lg font-semibold text-primary-foreground mb-2">Revolutionary AI & 3D Immersive Learning Models</div>
-                  <p className="text-sm text-primary-foreground/80">Cutting-edge training technology for enhanced learning outcomes</p>
+                <div className="bg-card backdrop-blur-sm rounded-lg p-6 border border-border shadow-sm hover:shadow-md transition-shadow">
+                  <div className="text-lg font-semibold text-foreground mb-2">Revolutionary AI & 3D Immersive Learning Models</div>
+                  <p className="text-sm text-muted-foreground">Cutting-edge training technology for enhanced learning outcomes</p>
                 </div>
               </div>
               
               <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-                <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-6 border border-primary-foreground/20">
-                  <div className="text-lg font-semibold text-primary-foreground mb-2">Focus on Cost-Effective, Scalable, and Sustainable Solutions</div>
-                  <p className="text-sm text-primary-foreground/80">Tailored approaches that grow with your organization</p>
+                <div className="bg-card backdrop-blur-sm rounded-lg p-6 border border-border shadow-sm hover:shadow-md transition-shadow">
+                  <div className="text-lg font-semibold text-foreground mb-2">Focus on Cost-Effective, Scalable, and Sustainable Solutions</div>
+                  <p className="text-sm text-muted-foreground">Tailored approaches that grow with your organization</p>
                 </div>
-                <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-6 border border-primary-foreground/20">
-                  <div className="text-lg font-semibold text-primary-foreground mb-2">Commitment to Excellence, Integrity, and Impact</div>
-                  <p className="text-sm text-primary-foreground/80">Delivering measurable results with unwavering ethical standards</p>
+                <div className="bg-card backdrop-blur-sm rounded-lg p-6 border border-border shadow-sm hover:shadow-md transition-shadow">
+                  <div className="text-lg font-semibold text-foreground mb-2">Commitment to Excellence, Integrity, and Impact</div>
+                  <p className="text-sm text-muted-foreground">Delivering measurable results with unwavering ethical standards</p>
                 </div>
               </div>
             </div>
