@@ -361,6 +361,7 @@ const GeometricTransform = () => {
 
 // Main Scene Component
 const Scene3D = ({ animationType }: { animationType: 'molecule' | 'dna' | 'particles' | 'geometric' }) => {
+  console.log('Scene3D rendering with animation type:', animationType);
   const renderAnimation = () => {
     switch (animationType) {
       case 'dna':
