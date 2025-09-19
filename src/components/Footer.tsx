@@ -175,6 +175,8 @@ const Footer = () => {
               ))}
             </div>
           </div>
+        </div>
+      </div>
 
       {/* Fixity Group branding */}
       <div className="bg-primary-foreground/5 border-t border-primary-foreground/10">
