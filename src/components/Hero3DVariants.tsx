@@ -4,179 +4,82 @@ import { OrbitControls, Sphere, Box, Cylinder, Torus } from '@react-three/drei';
 import { Mesh, Group } from 'three';
 import CountingNumber from './CountingNumber';
 
-// Holographic DNA Helix Animation
+// DNA Helix Animation
 const DNAHelix = () => {
   const groupRef = useRef<Group>(null);
   const strand1Ref = useRef<Group>(null);
   const strand2Ref = useRef<Group>(null);
-  const basePairsRef = useRef<Group>(null);
-  const particlesRef = useRef<Group>(null);
   
   useFrame((state) => {
     const time = state.clock.elapsedTime;
     
     if (groupRef.current) {
-      groupRef.current.rotation.y = time * 0.2;
-      groupRef.current.position.y = Math.sin(time * 0.3) * 0.15;
+      groupRef.current.rotation.y = time * 0.3;
+      groupRef.current.position.y = Math.sin(time * 0.5) * 0.1;
     }
     
-    // Animate particles floating around DNA
-    if (particlesRef.current) {
-      particlesRef.current.children.forEach((child, index) => {
-        child.position.y += Math.sin(time * 2 + index) * 0.003;
-        child.rotation.x = time * (0.5 + index * 0.1);
-        child.rotation.z = time * (0.3 + index * 0.05);
-      });
+    // Animate individual strands
+    if (strand1Ref.current) {
+      strand1Ref.current.rotation.y = time * 0.2;
+    }
+    if (strand2Ref.current) {
+      strand2Ref.current.rotation.y = -time * 0.2;
     }
   });
 
-  // Create two DNA strands with gradient colors
+  // Create two DNA strands with more points for smoother helix
   const strand1Points = [];
   const strand2Points = [];
-  const basePairs = [];
   
-  for (let i = 0; i < 40; i++) {
-    const angle1 = (i / 40) * Math.PI * 8;
+  for (let i = 0; i < 30; i++) {
+    const angle1 = (i / 30) * Math.PI * 6;
     const angle2 = angle1 + Math.PI;
-    const y = (i - 20) * 0.12;
-    const radius = 1.0;
-    
-    // Calculate gradient color from blue to cyan
-    const blueIntensity = Math.abs(Math.sin((i / 40) * Math.PI));
-    const strand1Color = `hsl(${200 + blueIntensity * 60}, 80%, ${60 + blueIntensity * 20}%)`;
-    
-    // Calculate gradient color from pink to magenta
-    const pinkIntensity = Math.abs(Math.cos((i / 40) * Math.PI));
-    const strand2Color = `hsl(${300 + pinkIntensity * 60}, 80%, ${60 + pinkIntensity * 20}%)`;
-    
-    const pos1 = [Math.cos(angle1) * radius, y, Math.sin(angle1) * radius] as [number, number, number];
-    const pos2 = [Math.cos(angle2) * radius, y, Math.sin(angle2) * radius] as [number, number, number];
+    const y = (i - 15) * 0.15;
+    const radius = 1.2;
     
     strand1Points.push({
-      position: pos1,
-      color: strand1Color
+      position: [Math.cos(angle1) * radius, y, Math.sin(angle1) * radius] as [number, number, number],
+      color: "#3b82f6"
     });
     
     strand2Points.push({
-      position: pos2,
-      color: strand2Color
-    });
-    
-    // Add base pairs (connecting lines) every few points
-    if (i % 3 === 0) {
-      basePairs.push({
-        pos1,
-        pos2,
-        midpoint: [
-          (pos1[0] + pos2[0]) / 2,
-          (pos1[1] + pos2[1]) / 2,
-          (pos1[2] + pos2[2]) / 2
-        ] as [number, number, number],
-        color: `hsl(${250 + (i % 5) * 20}, 70%, 65%)`
-      });
-    }
-  }
-
-  // Create floating particles
-  const particles = [];
-  for (let i = 0; i < 50; i++) {
-    particles.push({
-      position: [
-        (Math.random() - 0.5) * 6,
-        (Math.random() - 0.5) * 5,
-        (Math.random() - 0.5) * 6
-      ] as [number, number, number],
-      size: 0.02 + Math.random() * 0.05,
-      color: `hsl(${200 + Math.random() * 100}, 70%, ${50 + Math.random() * 30}%)`
+      position: [Math.cos(angle2) * radius, y, Math.sin(angle2) * radius] as [number, number, number],
+      color: "#ef4444"
     });
   }
 
   return (
     <group ref={groupRef}>
-      {/* First DNA strand - Blue gradient */}
+      {/* First DNA strand */}
       <group ref={strand1Ref}>
         {strand1Points.map((point, index) => (
-          <Sphere key={`strand1-${index}`} position={point.position} args={[0.08, 12, 12]}>
+          <Sphere key={`strand1-${index}`} position={point.position} args={[0.12, 16, 16]}>
             <meshStandardMaterial 
               color={point.color} 
-              metalness={0.9} 
-              roughness={0.1}
+              metalness={0.8} 
+              roughness={0.2}
               emissive={point.color}
-              emissiveIntensity={0.4}
-              transparent={true}
-              opacity={0.9}
+              emissiveIntensity={0.1}
             />
           </Sphere>
         ))}
       </group>
       
-      {/* Second DNA strand - Pink gradient */}
+      {/* Second DNA strand */}
       <group ref={strand2Ref}>
         {strand2Points.map((point, index) => (
-          <Sphere key={`strand2-${index}`} position={point.position} args={[0.08, 12, 12]}>
+          <Sphere key={`strand2-${index}`} position={point.position} args={[0.12, 16, 16]}>
             <meshStandardMaterial 
               color={point.color} 
-              metalness={0.9} 
-              roughness={0.1}
+              metalness={0.8} 
+              roughness={0.2}
               emissive={point.color}
-              emissiveIntensity={0.4}
-              transparent={true}
-              opacity={0.9}
+              emissiveIntensity={0.1}
             />
           </Sphere>
         ))}
       </group>
       
-      {/* Base pairs (connecting lines) */}
-      <group ref={basePairsRef}>
-        {basePairs.map((pair, index) => {
-          const distance = Math.sqrt(
-            Math.pow(pair.pos2[0] - pair.pos1[0], 2) +
-            Math.pow(pair.pos2[1] - pair.pos1[1], 2) +
-            Math.pow(pair.pos2[2] - pair.pos1[2], 2)
-          );
-          
-          return (
-            <Cylinder 
-              key={`basepair-${index}`} 
-              position={pair.midpoint} 
-              args={[0.02, 0.02, distance, 8]}
-              rotation={[
-                Math.atan2(pair.pos2[1] - pair.pos1[1], Math.sqrt(Math.pow(pair.pos2[0] - pair.pos1[0], 2) + Math.pow(pair.pos2[2] - pair.pos1[2], 2))),
-                Math.atan2(pair.pos2[0] - pair.pos1[0], pair.pos2[2] - pair.pos1[2]),
-                0
-              ]}
-            >
-              <meshStandardMaterial 
-                color={pair.color} 
-                metalness={0.8} 
-                roughness={0.2}
-                emissive={pair.color}
-                emissiveIntensity={0.3}
-                transparent={true}
-                opacity={0.8}
-              />
-            </Cylinder>
-          );
-        })}
-      </group>
-
-      {/* Floating particles */}
-      <group ref={particlesRef}>
-        {particles.map((particle, index) => (
-          <Sphere key={`particle-${index}`} position={particle.position} args={[particle.size, 6, 6]}>
-            <meshStandardMaterial 
-              color={particle.color} 
-              metalness={1.0} 
-              roughness={0.0}
-              emissive={particle.color}
-              emissiveIntensity={0.6}
-              transparent={true}
-              opacity={0.7}
-            />
-          </Sphere>
-        ))}
-      </group>
     </group>
   );
 };
