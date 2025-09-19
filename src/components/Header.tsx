@@ -8,7 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Menu, X, Phone, Mail, ChevronDown } from "lucide-react";
-import axygenLogo from "@/assets/axygen-fixity-logo-new.png";
+import axygenLogo from "@/assets/axygen-fixity-logo-latest.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

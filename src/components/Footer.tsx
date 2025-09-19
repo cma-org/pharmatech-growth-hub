@@ -10,7 +10,7 @@ import {
   Facebook,
   ArrowRight
 } from "lucide-react";
-import axygenLogo from "@/assets/axygen-fixity-logo-new.png";
+import axygenLogo from "@/assets/axygen-fixity-logo-latest.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
