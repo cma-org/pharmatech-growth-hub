@@ -4,7 +4,7 @@ import { OrbitControls, Sphere, Box, Cylinder, Torus } from '@react-three/drei';
 import { Mesh, Group } from 'three';
 import CountingNumber from './CountingNumber';
 
-// Pharmaceutical Molecule Animation
+// Pharmaceutical Molecule Animation - Updated for pharma industry
 const PharmaMolecule = () => {
   const groupRef = useRef<Group>(null);
   const moleculeRef = useRef<Group>(null);
