@@ -77,7 +77,7 @@ const ServicePillars = () => {
         "Validation Specialists",
         "Regulatory Affairs Talent"
       ],
-      link: "/contact",
+      link: "/talent-management",
       cta: "Find Talent",
       color: "accent"
     },
@@ -93,7 +93,7 @@ const ServicePillars = () => {
         "Unlearn & Relearn",
         "Future-Ready Skills"
       ],
-      link: "/contact",
+      link: "/leadership",
       cta: "Start Journey",
       color: "primary"
     },
@@ -109,7 +109,7 @@ const ServicePillars = () => {
         "Software Validation",
         "Digital Systems Assurance"
       ],
-      link: "/contact",
+      link: "/csv",
       cta: "Request CSV Support",
       color: "accent"
     }
