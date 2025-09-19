@@ -45,16 +45,13 @@ const Contact = () => {
       title: "Email",
       details: [
         "hello@axygenpharmatech.com",
-        "info@axygenpharmatech.com"
       ]
     },
     {
       icon: Clock,
       title: "Business Hours",
       details: [
-        "Monday - Friday: 9:00 AM - 6:00 PM",
-        "Saturday: 9:00 AM - 2:00 PM",
-        "Sunday: Closed"
+        "Monday - Friday: 10:00 AM - 6:00 PM"
       ]
     }
   ];
