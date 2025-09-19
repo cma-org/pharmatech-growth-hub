@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import WorkShowcaseCarousel from "@/components/WorkShowcaseCarousel";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -114,6 +115,9 @@ const OurWork = () => {
             </div>
           </div>
         </section>
+
+        {/* Work Showcase Carousel */}
+        <WorkShowcaseCarousel />
 
         {/* Video Showcase Section */}
         <section className="py-20 bg-gradient-subtle">
