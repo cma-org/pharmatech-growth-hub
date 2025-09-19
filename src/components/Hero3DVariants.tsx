@@ -4,82 +4,171 @@ import { OrbitControls, Sphere, Box, Cylinder, Torus } from '@react-three/drei';
 import { Mesh, Group } from 'three';
 import CountingNumber from './CountingNumber';
 
-// DNA Helix Animation
+// Modern Ribbon DNA Helix Animation
 const DNAHelix = () => {
   const groupRef = useRef<Group>(null);
-  const strand1Ref = useRef<Group>(null);
-  const strand2Ref = useRef<Group>(null);
+  const ribbon1Ref = useRef<Group>(null);
+  const ribbon2Ref = useRef<Group>(null);
   
   useFrame((state) => {
     const time = state.clock.elapsedTime;
     
     if (groupRef.current) {
-      groupRef.current.rotation.y = time * 0.3;
-      groupRef.current.position.y = Math.sin(time * 0.5) * 0.1;
+      groupRef.current.rotation.y = time * 0.4;
+      groupRef.current.position.y = Math.sin(time * 0.7) * 0.15;
     }
     
-    // Animate individual strands
-    if (strand1Ref.current) {
-      strand1Ref.current.rotation.y = time * 0.2;
+    // Counter-rotate the ribbons for dynamic effect
+    if (ribbon1Ref.current) {
+      ribbon1Ref.current.rotation.y = time * 0.3;
     }
-    if (strand2Ref.current) {
-      strand2Ref.current.rotation.y = -time * 0.2;
+    if (ribbon2Ref.current) {
+      ribbon2Ref.current.rotation.y = -time * 0.3;
     }
   });
 
-  // Create two DNA strands with more points for smoother helix
-  const strand1Points = [];
-  const strand2Points = [];
-  
-  for (let i = 0; i < 30; i++) {
-    const angle1 = (i / 30) * Math.PI * 6;
+  // Create flowing ribbon DNA strands
+  const createRibbonSegments = (strandIndex: number) => {
+    const segments = [];
+    const colors = strandIndex === 0 ? 
+      ["#06b6d4", "#0891b2", "#0e7490"] : 
+      ["#f97316", "#ea580c", "#dc2626"];
+    
+    for (let i = 0; i < 25; i++) {
+      const t = i / 25;
+      const angle = t * Math.PI * 8 + (strandIndex * Math.PI);
+      const radius = 1.3 + Math.sin(t * Math.PI * 4) * 0.2;
+      const y = (t - 0.5) * 4;
+      
+      // Create flowing ribbon segments with varying sizes
+      const size = 0.15 + Math.sin(t * Math.PI * 6) * 0.05;
+      const colorIndex = Math.floor(t * colors.length);
+      
+      segments.push({
+        position: [
+          Math.cos(angle) * radius, 
+          y, 
+          Math.sin(angle) * radius
+        ] as [number, number, number],
+        size: [size * 2, size * 0.5, size],
+        color: colors[colorIndex] || colors[0],
+        rotation: [0, angle, Math.sin(t * Math.PI * 4) * 0.3]
+      });
+    }
+    return segments;
+  };
+
+  const strand1Segments = createRibbonSegments(0);
+  const strand2Segments = createRibbonSegments(1);
+
+  // Create pulsing connections between strands
+  const connections = [];
+  for (let i = 0; i < 8; i++) {
+    const t = i / 8;
+    const angle1 = t * Math.PI * 8;
     const angle2 = angle1 + Math.PI;
-    const y = (i - 15) * 0.15;
-    const radius = 1.2;
+    const radius = 1.3;
+    const y = (t - 0.5) * 4;
     
-    strand1Points.push({
-      position: [Math.cos(angle1) * radius, y, Math.sin(angle1) * radius] as [number, number, number],
-      color: "#3b82f6"
-    });
-    
-    strand2Points.push({
-      position: [Math.cos(angle2) * radius, y, Math.sin(angle2) * radius] as [number, number, number],
-      color: "#ef4444"
+    connections.push({
+      start: [Math.cos(angle1) * radius, y, Math.sin(angle1) * radius] as [number, number, number],
+      end: [Math.cos(angle2) * radius, y, Math.sin(angle2) * radius] as [number, number, number],
+      color: "#a855f7"
     });
   }
 
   return (
     <group ref={groupRef}>
-      {/* First DNA strand */}
-      <group ref={strand1Ref}>
-        {strand1Points.map((point, index) => (
-          <Sphere key={`strand1-${index}`} position={point.position} args={[0.12, 16, 16]}>
+      {/* First DNA ribbon strand */}
+      <group ref={ribbon1Ref}>
+        {strand1Segments.map((segment, index) => (
+          <Box 
+            key={`ribbon1-${index}`} 
+            position={segment.position} 
+            args={segment.size}
+            rotation={segment.rotation}
+          >
             <meshStandardMaterial 
-              color={point.color} 
-              metalness={0.8} 
-              roughness={0.2}
-              emissive={point.color}
-              emissiveIntensity={0.1}
+              color={segment.color}
+              metalness={0.6}
+              roughness={0.3}
+              emissive={segment.color}
+              emissiveIntensity={0.2}
+              transparent={true}
+              opacity={0.9}
             />
-          </Sphere>
+          </Box>
         ))}
       </group>
       
-      {/* Second DNA strand */}
-      <group ref={strand2Ref}>
-        {strand2Points.map((point, index) => (
-          <Sphere key={`strand2-${index}`} position={point.position} args={[0.12, 16, 16]}>
+      {/* Second DNA ribbon strand */}
+      <group ref={ribbon2Ref}>
+        {strand2Segments.map((segment, index) => (
+          <Box 
+            key={`ribbon2-${index}`} 
+            position={segment.position} 
+            args={segment.size}
+            rotation={segment.rotation}
+          >
             <meshStandardMaterial 
-              color={point.color} 
-              metalness={0.8} 
-              roughness={0.2}
-              emissive={point.color}
-              emissiveIntensity={0.1}
+              color={segment.color}
+              metalness={0.6}
+              roughness={0.3}
+              emissive={segment.color}
+              emissiveIntensity={0.2}
+              transparent={true}
+              opacity={0.9}
             />
-          </Sphere>
+          </Box>
         ))}
       </group>
       
+      {/* Pulsing base pair connections */}
+      {connections.map((connection, index) => {
+        const midpoint = [
+          (connection.start[0] + connection.end[0]) / 2,
+          (connection.start[1] + connection.end[1]) / 2,
+          (connection.start[2] + connection.end[2]) / 2
+        ] as [number, number, number];
+        
+        const distance = Math.sqrt(
+          Math.pow(connection.end[0] - connection.start[0], 2) +
+          Math.pow(connection.end[1] - connection.start[1], 2) +
+          Math.pow(connection.end[2] - connection.start[2], 2)
+        );
+        
+        return (
+          <Cylinder 
+            key={`connection-${index}`} 
+            position={midpoint} 
+            args={[0.08, 0.08, distance * 0.8]}
+            rotation={[Math.PI / 2, 0, Math.atan2(connection.end[2] - connection.start[2], connection.end[0] - connection.start[0])]}
+          >
+            <meshStandardMaterial 
+              color={connection.color}
+              metalness={0.8} 
+              roughness={0.2}
+              emissive={connection.color}
+              emissiveIntensity={0.4}
+              transparent={true}
+              opacity={0.7}
+            />
+          </Cylinder>
+        );
+      })}
+      
+      {/* Central energy core */}
+      <Torus position={[0, 0, 0]} args={[0.3, 0.1, 16, 32]} rotation={[Math.PI / 2, 0, 0]}>
+        <meshStandardMaterial 
+          color="#22d3ee" 
+          metalness={1.0} 
+          roughness={0.0}
+          emissive="#22d3ee"
+          emissiveIntensity={0.5}
+          transparent={true}
+          opacity={0.8}
+        />
+      </Torus>
     </group>
   );
 };
@@ -222,7 +311,7 @@ const Hero3DVariant = ({ type = 'dna' }: { type?: 'molecule' | 'dna' | 'particle
       
       {/* Overlay with counting number - positioned to the right */}
       <div className="absolute inset-0 flex items-center justify-end pr-16">
-        <div className="text-center text-white bg-emerald-500/30 backdrop-blur-md p-8 border border-emerald-400/20" style={{ clipPath: 'polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%)' }}>
+        <div className="text-center text-white bg-emerald-500/30 backdrop-blur-md rounded-full p-8 border border-emerald-400/20">
           <CountingNumber end={75} suffix="+" className="text-5xl font-bold mb-2" />
           <div className="text-lg font-medium">Years Combined</div>
           <div className="text-lg font-medium">Leadership</div>
