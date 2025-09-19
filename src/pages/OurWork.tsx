@@ -115,6 +115,51 @@ const OurWork = () => {
           </div>
         </section>
 
+        {/* Video Showcase Section */}
+        <section className="py-20 bg-gradient-subtle">
+          <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+                See Our Impact in Action
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
+                Watch how our solutions transform pharmaceutical operations and deliver measurable results
+              </p>
+            </div>
+            
+            <div className="max-w-6xl mx-auto">
+              <div className="relative rounded-2xl overflow-hidden shadow-card bg-card border border-card-border">
+                <div className="aspect-video">
+                  <video 
+                    controls 
+                    className="w-full h-full object-cover"
+                    poster="/videos/video-thumbnail.jpg"
+                  >
+                    <source src="/videos/showcase-video.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+              </div>
+              
+              <div className="mt-8 grid md:grid-cols-3 gap-6 text-center">
+                <div className="p-6 bg-card rounded-lg border border-card-border">
+                  <div className="text-2xl font-bold text-primary mb-2">98%</div>
+                  <div className="text-sm text-muted-foreground">Client Satisfaction</div>
+                </div>
+                <div className="p-6 bg-card rounded-lg border border-card-border">
+                  <div className="text-2xl font-bold text-primary mb-2">24/7</div>
+                  <div className="text-sm text-muted-foreground">Expert Support</div>
+                </div>
+                <div className="p-6 bg-card rounded-lg border border-card-border">
+                  <div className="text-2xl font-bold text-primary mb-2">15+</div>
+                  <div className="text-sm text-muted-foreground">Years Experience</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Projects Section */}
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -194,50 +239,6 @@ const OurWork = () => {
           </div>
         </section>
 
-        {/* Video Showcase Section */}
-        <section className="py-20 bg-gradient-subtle">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                See Our Impact in Action
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
-                Watch how our solutions transform pharmaceutical operations and deliver measurable results
-              </p>
-            </div>
-            
-            <div className="max-w-4xl mx-auto">
-              <div className="relative rounded-2xl overflow-hidden shadow-card bg-card border border-card-border">
-                <div className="aspect-video">
-                  <video 
-                    controls 
-                    className="w-full h-full object-cover"
-                    poster="/videos/video-thumbnail.jpg"
-                  >
-                    <source src="/videos/showcase-video.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
-              </div>
-              
-              <div className="mt-8 grid md:grid-cols-3 gap-6 text-center">
-                <div className="p-6 bg-card rounded-lg border border-card-border">
-                  <div className="text-2xl font-bold text-primary mb-2">98%</div>
-                  <div className="text-sm text-muted-foreground">Client Satisfaction</div>
-                </div>
-                <div className="p-6 bg-card rounded-lg border border-card-border">
-                  <div className="text-2xl font-bold text-primary mb-2">24/7</div>
-                  <div className="text-sm text-muted-foreground">Expert Support</div>
-                </div>
-                <div className="p-6 bg-card rounded-lg border border-card-border">
-                  <div className="text-2xl font-bold text-primary mb-2">15+</div>
-                  <div className="text-sm text-muted-foreground">Years Experience</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Call to Action */}
         <section className="bg-gradient-primary py-20">
