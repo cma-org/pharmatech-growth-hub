@@ -30,7 +30,6 @@ const DNAHelix = () => {
   // Create two DNA strands with more points for smoother helix
   const strand1Points = [];
   const strand2Points = [];
-  const connections = [];
   
   for (let i = 0; i < 30; i++) {
     const angle1 = (i / 30) * Math.PI * 6;
@@ -47,14 +46,6 @@ const DNAHelix = () => {
       position: [Math.cos(angle2) * radius, y, Math.sin(angle2) * radius] as [number, number, number],
       color: "#ef4444"
     });
-    
-    // Add base pair connections every few points
-    if (i % 3 === 0) {
-      connections.push({
-        start: [Math.cos(angle1) * radius, y, Math.sin(angle1) * radius] as [number, number, number],
-        end: [Math.cos(angle2) * radius, y, Math.sin(angle2) * radius] as [number, number, number]
-      });
-    }
   }
 
   return (
@@ -89,50 +80,6 @@ const DNAHelix = () => {
         ))}
       </group>
       
-      {/* Base pair connections */}
-      {connections.map((connection, index) => {
-        const midpoint = [
-          (connection.start[0] + connection.end[0]) / 2,
-          (connection.start[1] + connection.end[1]) / 2,
-          (connection.start[2] + connection.end[2]) / 2
-        ] as [number, number, number];
-        
-        const distance = Math.sqrt(
-          Math.pow(connection.end[0] - connection.start[0], 2) +
-          Math.pow(connection.end[1] - connection.start[1], 2) +
-          Math.pow(connection.end[2] - connection.start[2], 2)
-        );
-        
-        return (
-          <Cylinder 
-            key={`connection-${index}`} 
-            position={midpoint} 
-            args={[0.04, 0.04, distance]}
-            rotation={[0, 0, Math.PI / 2]}
-          >
-            <meshStandardMaterial 
-              color="#10b981" 
-              metalness={0.7} 
-              roughness={0.3}
-              emissive="#10b981"
-              emissiveIntensity={0.1}
-            />
-          </Cylinder>
-        );
-      })}
-      
-      {/* Central core glow */}
-      <Cylinder position={[0, 0, 0]} args={[0.05, 0.05, 5]} rotation={[0, 0, 0]}>
-        <meshStandardMaterial 
-          color="#8b5cf6" 
-          metalness={0.9} 
-          roughness={0.1}
-          emissive="#8b5cf6"
-          emissiveIntensity={0.3}
-          transparent={true}
-          opacity={0.6}
-        />
-      </Cylinder>
     </group>
   );
 };
@@ -275,7 +222,7 @@ const Hero3DVariant = ({ type = 'dna' }: { type?: 'molecule' | 'dna' | 'particle
       
       {/* Overlay with counting number - positioned to the right */}
       <div className="absolute inset-0 flex items-center justify-end pr-16">
-        <div className="text-center text-white bg-emerald-500/30 backdrop-blur-md rounded-full p-8 border border-emerald-400/20">
+        <div className="text-center text-white bg-emerald-500/30 backdrop-blur-md p-8 border border-emerald-400/20" style={{ clipPath: 'polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%)' }}>
           <CountingNumber end={75} suffix="+" className="text-5xl font-bold mb-2" />
           <div className="text-lg font-medium">Years Combined</div>
           <div className="text-lg font-medium">Leadership</div>
