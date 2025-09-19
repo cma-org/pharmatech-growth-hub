@@ -133,8 +133,7 @@ All colors MUST be HSL for proper theming.
   }
 
   body {
-    @apply bg-gradient-to-br from-primary via-primary/90 to-secondary text-foreground font-sans antialiased;
-    transition-property: none;
+    @apply bg-background text-foreground;
   }
 
   /* Custom animation classes */
@@ -159,15 +158,6 @@ All colors MUST be HSL for proper theming.
     to {
       opacity: 1;
       transform: translateY(0);
-    }
-  }
-
-  @keyframes wave {
-    0%, 100% {
-      transform: translateX(0%);
-    }
-    50% {
-      transform: translateX(-25%);
     }
   }
 
