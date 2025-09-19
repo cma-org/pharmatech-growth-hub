@@ -150,18 +150,55 @@ const About = () => {
       {/* Mission & Values */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Our Mission
-            </h2>
-            <div className="bg-gradient-primary rounded-lg p-8 mb-12">
-              <p className="text-xl text-primary-foreground max-w-4xl mx-auto leading-relaxed">
-                To be a reliable and results-oriented partner supporting 
-                pharmaceutical and biotech companies with customized 
-                GxP solutions that foster compliance, efficiency, and 
-                long-term growth.
-              </p>
+          {/* Mission section with enhanced design */}
+          <div className="mb-20">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Our Mission</h2>
             </div>
+            
+            <div className="max-w-4xl mx-auto">
+              <div className="bg-gradient-card rounded-3xl p-8 md:p-12 border border-card-border shadow-card relative overflow-hidden">
+                {/* Background decoration */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
+                <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
+                <div className="absolute -bottom-20 -left-20 w-32 h-32 bg-accent/10 rounded-full blur-3xl"></div>
+                
+                <div className="relative z-10">
+                  <div className="text-center mb-8">
+                    <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
+                      <Award className="h-8 w-8 text-primary-foreground" />
+                    </div>
+                  </div>
+                  
+                  <blockquote className="text-xl md:text-2xl font-medium text-center text-foreground leading-relaxed mb-8">
+                    "To be a reliable and results-oriented partner supporting pharmaceutical and biotech companies with 
+                    <span className="text-primary font-semibold"> customized GxP solutions</span> that foster 
+                    <span className="text-accent font-semibold"> compliance</span>, 
+                    <span className="text-primary font-semibold">efficiency</span>, 
+                    and <span className="text-accent font-semibold">long-term growth</span>."
+                  </blockquote>
+                  
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-muted-foreground">
+                    <div className="flex items-center space-x-2">
+                      <Shield className="h-5 w-5 text-primary" />
+                      <span>Quality Excellence</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <Globe className="h-5 w-5 text-accent" />
+                      <span>Global Impact</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <TrendingUp className="h-5 w-5 text-primary" />
+                      <span>Innovation Focus</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Values Section */}
+          <div className="text-center mb-16">
             <h3 className="text-2xl font-bold text-foreground mb-4">Our Values</h3>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Built on decades of pharmaceutical industry experience, our values guide every solution we deliver.

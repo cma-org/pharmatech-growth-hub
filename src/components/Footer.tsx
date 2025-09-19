@@ -53,7 +53,7 @@ const Footer = () => {
               <img 
                 src={axygenLogo} 
                 alt="Axygen Pharmatech - Global Centre of Excellence for GxP Training & Consulting" 
-                className="h-16 w-auto mb-4 hover:scale-105 transition-transform duration-300"
+                className="h-12 w-auto mb-4 hover:scale-105 transition-transform duration-300"
               />
             </div>
             <p className="text-primary-foreground/80 mb-6 leading-relaxed">
@@ -66,7 +66,7 @@ const Footer = () => {
           <div className="lg:col-span-3 grid md:grid-cols-3 gap-6">
             {/* Services */}
             <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <h4 className="text-lg font-semibold mb-6">Services</h4>
+              <h4 className="text-sm font-semibold mb-4">Services</h4>
               <ul className="space-y-3">
                 {quickLinks.map((link, index) => (
                   <li key={link.name}>
@@ -84,7 +84,7 @@ const Footer = () => {
 
             {/* Training Programs */}
             <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              <h4 className="text-lg font-semibold mb-6">Training Programs</h4>
+              <h4 className="text-sm font-semibold mb-4">Training Programs</h4>
               <ul className="space-y-3">
                 {services.map((service) => (
                   <li key={service.name}>
@@ -102,7 +102,7 @@ const Footer = () => {
 
             {/* Resources */}
             <div className="animate-fade-in" style={{ animationDelay: '0.6s' }}>
-              <h4 className="text-lg font-semibold mb-6">Resources</h4>
+              <h4 className="text-sm font-semibold mb-4">Resources</h4>
               <ul className="space-y-3">
                 {resources.map((resource) => (
                   <li key={resource.name}>

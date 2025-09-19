@@ -18,7 +18,7 @@ const Header = () => {
     { name: "Auditing", href: "/auditing" },
     { name: "Consulting", href: "/consulting" },
     { name: "GxP Training", href: "/training" },
-    { name: "Talent Management", href: "/recruitment" },
+    { name: "Talent Management", href: "/contact" },
     { name: "Leadership & Career Mentor", href: "/leadership" },
     { name: "Computer System Validation", href: "/csv" },
   ];

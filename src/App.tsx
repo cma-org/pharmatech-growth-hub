@@ -10,7 +10,6 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Auditing from "./pages/Auditing";
 import Consulting from "./pages/Consulting";
-import Recruitment from "./pages/Recruitment";
 import Leadership from "./pages/Leadership";
 import CSV from "./pages/CSV";
 import Product3DLearning from "./pages/Product3DLearning";
@@ -36,7 +35,7 @@ const App = () => (
           <Route path="/training" element={<Training />} />
           <Route path="/auditing" element={<Auditing />} />
           <Route path="/consulting" element={<Consulting />} />
-          <Route path="/recruitment" element={<Recruitment />} />
+          
           <Route path="/leadership" element={<Leadership />} />
           <Route path="/csv" element={<CSV />} />
           <Route path="/products/3d-learning" element={<Product3DLearning />} />

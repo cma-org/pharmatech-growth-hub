@@ -77,7 +77,7 @@ const ServicePillars = () => {
         "Validation Specialists",
         "Regulatory Affairs Talent"
       ],
-      link: "/recruitment",
+      link: "/contact",
       cta: "Find Talent",
       color: "accent"
     },
@@ -128,7 +128,7 @@ const ServicePillars = () => {
             </p>
           </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
           {pillars.map((pillar, index) => {
             const Icon = pillar.icon;
             return (
@@ -208,8 +208,8 @@ const ServicePillars = () => {
             {/* 3D Immersive Learning Modules */}
             <Card className="group hover:shadow-hover hover:scale-[1.02] transition-all duration-300 border-card-border bg-card overflow-hidden">
               <div className="relative h-48 overflow-hidden">
-                <img 
-                  src="/src/assets/3d-learning-modules.jpg" 
+                 <img 
+                  src={trainingImage} 
                   alt="3D Immersive Learning Modules"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
                 />
@@ -273,8 +273,8 @@ const ServicePillars = () => {
             {/* AI-Integrated Quality Dashboards */}
             <Card className="group hover:shadow-hover hover:scale-[1.02] transition-all duration-300 border-card-border bg-card overflow-hidden">
               <div className="relative h-48 overflow-hidden">
-                <img 
-                  src="/src/assets/ai-quality-dashboard.jpg" 
+                 <img 
+                  src={aiImage} 
                   alt="AI-Integrated Quality Dashboards"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
                 />
