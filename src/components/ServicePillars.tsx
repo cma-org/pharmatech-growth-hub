@@ -261,7 +261,7 @@ const ServicePillars = () => {
                     className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all duration-200" 
                     asChild
                   >
-                    <Link to="/product-3d-learning">
+                    <Link to="/products/3d-learning">
                       Explore 3D Learning
                       <TrendingUp className="ml-2 h-4 w-4" />
                     </Link>
@@ -326,7 +326,7 @@ const ServicePillars = () => {
                     className="w-full bg-accent text-primary-foreground hover:bg-accent/90 hover:scale-105 transition-all duration-200" 
                     asChild
                   >
-                    <Link to="/product-ai-dashboard">
+                    <Link to="/products/ai-dashboard">
                       Explore AI Dashboard
                       <TrendingUp className="ml-2 h-4 w-4" />
                     </Link>
