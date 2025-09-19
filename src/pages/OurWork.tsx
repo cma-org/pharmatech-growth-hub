@@ -141,21 +141,6 @@ const OurWork = () => {
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
               </div>
-              
-              <div className="mt-8 grid md:grid-cols-3 gap-6 text-center">
-                <div className="p-6 bg-card rounded-lg border border-card-border">
-                  <div className="text-2xl font-bold text-primary mb-2">98%</div>
-                  <div className="text-sm text-muted-foreground">Client Satisfaction</div>
-                </div>
-                <div className="p-6 bg-card rounded-lg border border-card-border">
-                  <div className="text-2xl font-bold text-primary mb-2">24/7</div>
-                  <div className="text-sm text-muted-foreground">Expert Support</div>
-                </div>
-                <div className="p-6 bg-card rounded-lg border border-card-border">
-                  <div className="text-2xl font-bold text-primary mb-2">15+</div>
-                  <div className="text-sm text-muted-foreground">Years Experience</div>
-                </div>
-              </div>
             </div>
           </div>
         </section>
