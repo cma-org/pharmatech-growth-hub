@@ -10,15 +10,22 @@ const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
   const [isVisible, setIsVisible] = useState(true);
   const [progress, setProgress] = useState(0);
 
+  console.log("LoadingScreen render - isVisible:", isVisible, "progress:", progress);
+
   useEffect(() => {
+    console.log("LoadingScreen useEffect starting");
     // Simulate loading progress
     const progressInterval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(progressInterval);
+          console.log("Loading complete, hiding screen");
           setTimeout(() => {
             setIsVisible(false);
-            setTimeout(onLoadingComplete, 500); // Wait for fade out animation
+            setTimeout(() => {
+              console.log("Calling onLoadingComplete");
+              onLoadingComplete();
+            }, 500); // Wait for fade out animation
           }, 500);
           return 100;
         }

@@ -33,13 +33,16 @@ const App = () => {
     setIsLoading(false);
   };
 
+  console.log("App render - isLoading:", isLoading);
+
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
-        <BrowserRouter>
+    <>
+      {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
           <ScrollToTopOnRoute />
           <Routes>
           <Route path="/" element={<Index />} />
@@ -63,8 +66,9 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </>
   );
 };
 
