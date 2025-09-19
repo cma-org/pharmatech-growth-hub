@@ -121,7 +121,7 @@ const WorkShowcaseCarousel = () => {
           {/* Single Image - Full Width */}
           <div className="w-full">
             <Card className="relative overflow-hidden shadow-card border border-card-border/20 bg-card/5 backdrop-blur-sm">
-              <div className="aspect-[16/6] relative">
+              <div className="aspect-[16/8] relative">
                 <img
                   src={showcaseImages[currentIndex].src}
                   alt={showcaseImages[currentIndex].alt}
