@@ -12,6 +12,10 @@ import professionalMeeting from "@/assets/work-showcase/professional-meeting.jpg
 import largeGroupEvent from "@/assets/work-showcase/large-group-event.jpg";
 import diverseTeam from "@/assets/work-showcase/diverse-team.jpg";
 import strategicPlanning from "@/assets/work-showcase/strategic-planning.jpg";
+import trainingWorkshop from "@/assets/work-showcase/training-workshop.jpg";
+import presentationSession from "@/assets/work-showcase/presentation-session.jpg";
+import teamGroupPhoto from "@/assets/work-showcase/team-group-photo.jpg";
+import ictTraining from "@/assets/work-showcase/ict-training.jpg";
 
 const WorkShowcaseCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -19,53 +23,59 @@ const WorkShowcaseCarousel = () => {
   const showcaseImages = [
     {
       src: meetingPresentation,
-      alt: "Strategic meeting and presentation session with pharmaceutical professionals",
-      title: "Strategic Consulting"
+      alt: "Strategic meeting and presentation session with pharmaceutical professionals"
     },
     {
       src: professionalConversation,
-      alt: "Professional consultation and networking",
-      title: "Expert Consultation"
+      alt: "Professional consultation and networking"
     },
     {
       src: teamCollaboration,
-      alt: "Collaborative team work and registration process",
-      title: "Team Collaboration"
+      alt: "Collaborative team work and registration process"
     },
     {
       src: trainingSession,
-      alt: "Interactive training session with engaged participants",
-      title: "Interactive Training"
+      alt: "Interactive training session with engaged participants"
     },
     {
       src: awardCeremony,
-      alt: "Recognition and award ceremony for excellence",
-      title: "Recognition Events"
+      alt: "Recognition and award ceremony for excellence"
     },
     {
       src: successfulTraining,
-      alt: "Successful training completion with satisfied participants",
-      title: "Training Success"
+      alt: "Successful training completion with satisfied participants"
     },
     {
       src: professionalMeeting,
-      alt: "Professional meeting with industry experts",
-      title: "Expert Meetings"
+      alt: "Professional meeting with industry experts"
     },
     {
       src: largeGroupEvent,
-      alt: "Large scale pharmaceutical industry event",
-      title: "Industry Events"
+      alt: "Large scale pharmaceutical industry event"
     },
     {
       src: diverseTeam,
-      alt: "Diverse team of pharmaceutical professionals",
-      title: "Global Teams"
+      alt: "Diverse team of pharmaceutical professionals"
     },
     {
       src: strategicPlanning,
-      alt: "Strategic planning and action priority discussions",
-      title: "Strategic Planning"
+      alt: "Strategic planning and action priority discussions"
+    },
+    {
+      src: trainingWorkshop,
+      alt: "Interactive training workshop with engaged participants"
+    },
+    {
+      src: presentationSession,
+      alt: "Professional presentation and learning session"
+    },
+    {
+      src: teamGroupPhoto,
+      alt: "Large team group photo after successful training completion"
+    },
+    {
+      src: ictTraining,
+      alt: "ICT training session with focused participants"
     }
   ];
 
@@ -93,7 +103,7 @@ const WorkShowcaseCarousel = () => {
   const visibleImages = getVisibleImages();
 
   return (
-    <section className="py-16 bg-gradient-hero relative overflow-hidden">
+    <section className="py-16 bg-gradient-primary relative overflow-hidden">
       <div className="absolute inset-0 bg-black/30"></div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
@@ -111,18 +121,13 @@ const WorkShowcaseCarousel = () => {
           {/* Mobile View - Single Image */}
           <div className="block md:hidden">
             <Card className="relative overflow-hidden shadow-card border border-card-border/20 bg-card/5 backdrop-blur-sm">
-              <div className="aspect-[16/10] relative">
+              <div className="aspect-[16/8] relative">
                 <img
                   src={showcaseImages[currentIndex].src}
                   alt={showcaseImages[currentIndex].alt}
                   className="w-full h-full object-cover transition-all duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-                <div className="absolute bottom-4 left-4 right-4">
-                  <h3 className="text-lg font-semibold text-white mb-1">
-                    {showcaseImages[currentIndex].title}
-                  </h3>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
               </div>
             </Card>
           </div>
@@ -136,18 +141,13 @@ const WorkShowcaseCarousel = () => {
                   index === 0 ? 'transform scale-105 ring-2 ring-accent/50' : 'transform scale-95 opacity-80'
                 }`}
               >
-                <div className="aspect-[16/10] relative">
+                <div className="aspect-[16/8] relative">
                   <img
                     src={image.src}
                     alt={image.alt}
                     className="w-full h-full object-cover transition-all duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-lg font-semibold text-white mb-1">
-                      {image.title}
-                    </h3>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
                 </div>
               </Card>
             ))}
