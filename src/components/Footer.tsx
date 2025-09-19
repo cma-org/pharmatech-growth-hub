@@ -176,21 +176,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Social links */}
-          <div className="flex space-x-4">
-            <Button variant="ghost" size="sm" className="w-8 h-8 p-0 text-primary-foreground/70 hover:text-accent hover:text-white hover:scale-110 transition-all duration-200">
-              <Linkedin className="h-4 w-4" />
-            </Button>
-            <Button variant="ghost" size="sm" className="w-8 h-8 p-0 text-primary-foreground/70 hover:text-accent hover:text-white hover:scale-110 transition-all duration-200">
-              <Twitter className="h-4 w-4" />
-            </Button>
-            <Button variant="ghost" size="sm" className="w-8 h-8 p-0 text-primary-foreground/70 hover:text-accent hover:text-white hover:scale-110 transition-all duration-200">
-              <Facebook className="h-4 w-4" />
-            </Button>
-          </div>
-        </div>
-      </div>
-
       {/* Fixity Group branding */}
       <div className="bg-primary-foreground/5 border-t border-primary-foreground/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
