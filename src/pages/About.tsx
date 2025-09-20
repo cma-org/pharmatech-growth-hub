@@ -78,36 +78,6 @@ const About = () => {
     }
   ];
 
-  const teamMembers = [
-    {
-      name: "Dr. Rajesh Kumar",
-      role: "Founder & CEO",
-      credentials: "Ph.D. Pharmaceutical Sciences, 25+ years USFDA experience",
-      specialties: ["Quality Systems", "Regulatory Compliance", "Strategic Leadership"],
-      achievements: "Led 50+ successful FDA inspections"
-    },
-    {
-      name: "Dr. Priya Sharma",
-      role: "Head of Learning & Development",
-      credentials: "Ph.D. Biotechnology, 20+ years training experience",
-      specialties: ["GMP Training", "Curriculum Design", "Adult Learning"],
-      achievements: "Designed training programs for 5,000+ professionals"
-    },
-    {
-      name: "Amit Patel",
-      role: "Quality Compliance Officer",
-      credentials: "M.S. Quality Management, 18+ years audit experience",
-      specialties: ["Data Integrity", "Computer Systems Validation", "Gap Analysis"],
-      achievements: "Conducted 200+ compliance audits globally"
-    },
-    {
-      name: "Dr. Sunita Reddy",
-      role: "Senior Consultant",
-      credentials: "Ph.D. Microbiology, 22+ years industry experience",
-      specialties: ["Microbiology", "Sterile Manufacturing", "Environmental Monitoring"],
-      achievements: "Expert in WHO and EU-GMP standards"
-    }
-  ];
 
   const certifications = [
     "USFDA Registered Expert",
@@ -282,59 +252,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Leadership Team */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Leadership Team
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Quality Assurance veterans with combined 75+ years of leadership experience 
-              from global regulatory inspections and greenfield setups.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {teamMembers.map((member, index) => (
-              <Card key={index} className="border-card-border bg-card hover:shadow-hover transition-all duration-300">
-                <CardHeader>
-                  <div className="flex items-start space-x-4">
-                    <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center">
-                      <span className="text-primary-foreground font-bold text-xl">
-                        {member.name.split(' ').map(n => n[0]).join('')}
-                      </span>
-                    </div>
-                    <div className="flex-1">
-                      <CardTitle className="text-xl font-bold text-foreground mb-1">
-                        {member.name}
-                      </CardTitle>
-                      <p className="text-primary font-medium mb-2">{member.role}</p>
-                      <p className="text-sm text-muted-foreground mb-3">{member.credentials}</p>
-                      <Badge variant="outline" className="text-xs">
-                        <Star className="h-3 w-3 mr-1" />
-                        {member.achievements}
-                      </Badge>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-2">Specialties</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {member.specialties.map((specialty, specIndex) => (
-                        <Badge key={specIndex} variant="secondary" className="text-xs">
-                          {specialty}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Certifications & Credentials */}
       <section className="py-20 bg-gradient-trust">
