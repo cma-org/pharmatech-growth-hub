@@ -138,8 +138,10 @@ const OurWork = () => {
                     controls 
                     className="w-full h-full object-cover"
                     poster="/videos/video-thumbnail.jpg"
+                    preload="metadata"
+                    controlsList="nodownload"
                   >
-                    <source src="/videos/showcase-video.mp4?t=1726745697" type="video/mp4" />
+                    <source src="/videos/showcase-video.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </div>
