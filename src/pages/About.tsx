@@ -6,90 +6,61 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import CountingNumber from "@/components/CountingNumber";
-import { 
-  Users, 
-  Award, 
-  Globe, 
-  TrendingUp,
-  CheckCircle,
-  Target,
-  Heart,
-  Lightbulb,
-  Shield,
-  Star,
-  GraduationCap
-} from "lucide-react";
-
+import { Users, Award, Globe, TrendingUp, CheckCircle, Target, Heart, Lightbulb, Shield, Star, GraduationCap } from "lucide-react";
 const About = () => {
-  const achievements = [
-    {
-      icon: CheckCircle,
-      title: "USFDA & EU Inspections",
-      description: "Successfully led multiple USFDA, EU and other regulatory inspections"
-    },
-    {
-      icon: Users,
-      title: "Greenfield Projects", 
-      description: "Built quality systems for greenfield projects across Oral Solid Dosages, Injectables, API, and Biotech facilities"
-    },
-    {
-      icon: GraduationCap,
-      title: "10,000+ Professionals Trained",
-      description: "Trained pharma professionals in GxP, regulatory trends, and compliance strategies"
-    },
-    {
-      icon: TrendingUp,
-      title: "40% Quality Incident Reduction",
-      description: "Reduced quality incidents and deviations by up to 40% through QMS improvements"
-    },
-    {
-      icon: Award,
-      title: "Faster Market Readiness",
-      description: "Enabled clients to achieve faster regulatory approvals and market readiness"
-    }
-  ];
-
-  const keyStats = [
-    { number: 10000, suffix: "+", label: "Professionals Trained" },
-    { number: 75, suffix: "+", label: "Years Combined Leadership" },
-    { number: 40, suffix: "%", label: "Quality Incident Reduction" }
-  ];
-
-  const values = [
-    {
-      icon: Target,
-      title: "Excellence",
-      description: "We strive for the highest standards in everything we do, delivering solutions that exceed expectations."
-    },
-    {
-      icon: Heart,
-      title: "Integrity",
-      description: "We operate with complete transparency and ethical practices, building trust through honest communication."
-    },
-    {
-      icon: Lightbulb,
-      title: "Innovation",
-      description: "We embrace cutting-edge technologies and methodologies to solve complex pharmaceutical challenges."
-    },
-    {
-      icon: Shield,
-      title: "Compliance",
-      description: "We ensure all our solutions meet the strictest regulatory requirements and industry standards."
-    }
-  ];
-
-
-  const certifications = [
-    "USFDA Registered Expert",
-    "EU-GMP Certified Auditor",
-    "WHO Prequalification Specialist",
-    "ICH Guidelines Expert",
-    "ISO 9001:2015 Lead Auditor",
-    "Computer Systems Validation (CSV) Expert"
-  ];
-
-  return (
-    <div className="min-h-screen bg-background">
+  const achievements = [{
+    icon: CheckCircle,
+    title: "USFDA & EU Inspections",
+    description: "Successfully led multiple USFDA, EU and other regulatory inspections"
+  }, {
+    icon: Users,
+    title: "Greenfield Projects",
+    description: "Built quality systems for greenfield projects across Oral Solid Dosages, Injectables, API, and Biotech facilities"
+  }, {
+    icon: GraduationCap,
+    title: "10,000+ Professionals Trained",
+    description: "Trained pharma professionals in GxP, regulatory trends, and compliance strategies"
+  }, {
+    icon: TrendingUp,
+    title: "40% Quality Incident Reduction",
+    description: "Reduced quality incidents and deviations by up to 40% through QMS improvements"
+  }, {
+    icon: Award,
+    title: "Faster Market Readiness",
+    description: "Enabled clients to achieve faster regulatory approvals and market readiness"
+  }];
+  const keyStats = [{
+    number: 10000,
+    suffix: "+",
+    label: "Professionals Trained"
+  }, {
+    number: 75,
+    suffix: "+",
+    label: "Years Combined Leadership"
+  }, {
+    number: 40,
+    suffix: "%",
+    label: "Quality Incident Reduction"
+  }];
+  const values = [{
+    icon: Target,
+    title: "Excellence",
+    description: "We strive for the highest standards in everything we do, delivering solutions that exceed expectations."
+  }, {
+    icon: Heart,
+    title: "Integrity",
+    description: "We operate with complete transparency and ethical practices, building trust through honest communication."
+  }, {
+    icon: Lightbulb,
+    title: "Innovation",
+    description: "We embrace cutting-edge technologies and methodologies to solve complex pharmaceutical challenges."
+  }, {
+    icon: Shield,
+    title: "Compliance",
+    description: "We ensure all our solutions meet the strictest regulatory requirements and industry standards."
+  }];
+  const certifications = ["USFDA Registered Expert", "EU-GMP Certified Auditor", "WHO Prequalification Specialist", "ICH Guidelines Expert", "ISO 9001:2015 Lead Auditor", "Computer Systems Validation (CSV) Expert"];
+  return <div className="min-h-screen bg-background">
       <Header />
       
       {/* Hero Section */}
@@ -98,9 +69,7 @@ const About = () => {
           <Badge className="mb-6 bg-accent/20 text-accent-foreground">
             Part of Fixity Group of Companies
           </Badge>
-          <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
-            AXYGEN PHARMACEUTICAL
-          </h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-6">AXYGEN PHARMATECH</h1>
           <div className="text-xl text-primary-foreground/90 mb-8 max-w-4xl mx-auto leading-relaxed space-y-4">
             <p>
               Founded by Quality Assurance veterans with <span className="text-accent font-semibold">75+ years</span> of combined leadership 
@@ -177,9 +146,8 @@ const About = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => {
-              const Icon = value.icon;
-              return (
-                <Card key={index} className="text-center border-card-border bg-card hover:shadow-hover transition-all duration-300">
+            const Icon = value.icon;
+            return <Card key={index} className="text-center border-card-border bg-card hover:shadow-hover transition-all duration-300">
                   <CardHeader>
                     <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
                       <Icon className="h-8 w-8 text-primary-foreground" />
@@ -193,9 +161,8 @@ const About = () => {
                       {value.description}
                     </p>
                   </CardContent>
-                </Card>
-              );
-            })}
+                </Card>;
+          })}
           </div>
         </div>
       </section>
@@ -214,9 +181,8 @@ const About = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {achievements.map((achievement, index) => {
-              const Icon = achievement.icon;
-              return (
-                <Card key={index} className="text-center border-card-border bg-card hover:shadow-hover transition-all duration-300">
+            const Icon = achievement.icon;
+            return <Card key={index} className="text-center border-card-border bg-card hover:shadow-hover transition-all duration-300">
                   <CardHeader>
                     <Icon className="h-12 w-12 text-primary mx-auto mb-4" />
                     <CardTitle className="text-lg font-bold text-foreground mb-2">
@@ -228,26 +194,18 @@ const About = () => {
                       {achievement.description}
                     </p>
                   </CardContent>
-                </Card>
-              );
-            })}
+                </Card>;
+          })}
           </div>
 
           {/* Key Statistics */}
           <div className="grid md:grid-cols-3 gap-8 bg-gradient-trust rounded-2xl p-8">
-            {keyStats.map((stat, index) => (
-              <div key={index} className="text-center">
+            {keyStats.map((stat, index) => <div key={index} className="text-center">
                 <div className="text-4xl font-bold text-primary mb-2">
-                  <CountingNumber 
-                    end={stat.number} 
-                    suffix={stat.suffix}
-                    className="text-4xl font-bold text-primary"
-                    duration={2500}
-                  />
+                  <CountingNumber end={stat.number} suffix={stat.suffix} className="text-4xl font-bold text-primary" duration={2500} />
                 </div>
                 <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -266,12 +224,10 @@ const About = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {certifications.map((cert, index) => (
-              <div key={index} className="flex items-center space-x-3 bg-card p-4 rounded-lg border border-card-border">
+            {certifications.map((cert, index) => <div key={index} className="flex items-center space-x-3 bg-card p-4 rounded-lg border border-card-border">
                 <CheckCircle className="h-5 w-5 text-accent flex-shrink-0" />
                 <span className="text-foreground font-medium">{cert}</span>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -324,8 +280,6 @@ const About = () => {
 
       <Footer />
       <ScrollToTop />
-    </div>
-  );
+    </div>;
 };
-
 export default About;
