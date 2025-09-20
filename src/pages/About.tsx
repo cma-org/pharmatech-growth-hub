@@ -73,7 +73,7 @@ const About = () => {
           <div className="text-xl text-primary-foreground/90 mb-8 max-w-4xl mx-auto leading-relaxed space-y-4">
             <p>
               Founded by Quality Assurance veterans with <span className="text-accent font-semibold">75+ years</span> of combined leadership 
-              in the pharmaceutical and biotech industries, AXYGEN PHARMACEUTICAL is a 
+              in the pharmaceutical and biotech industries, AXYGEN PHARMATECH is a 
               <span className="text-accent font-semibold"> GxP Training, Auditing, Quality & Consulting</span> company enabling us to scale our 
               global presence.
             </p>
