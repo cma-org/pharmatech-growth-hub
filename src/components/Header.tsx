@@ -28,8 +28,13 @@ const Header = () => {
     { name: "AI Quality Dashboards", href: "/products/ai-dashboard" },
   ];
 
+  const eventsItems = [
+    { name: "Zero-Defect Tablet Manufacturing Workshop", href: "https://events.axygenpharmatech.com" },
+  ];
+
   const isServicesActive = servicesItems.some(item => location.pathname === item.href);
   const isProductsActive = productsItems.some(item => location.pathname === item.href);
+  const isEventsActive = eventsItems.some(item => location.pathname === item.href);
 
   const isActive = (href: string) => location.pathname === href;
 
@@ -142,6 +147,30 @@ const Header = () => {
               OUR WORK
             </Link>
 
+            {/* Events Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className={`flex items-center space-x-1 px-3 py-2 text-sm font-medium transition-smooth rounded-md ${
+                isEventsActive
+                  ? "text-primary bg-primary/5"
+                  : "text-foreground hover:text-primary hover:bg-primary/5"
+              }`}>
+                <span>EVENTS</span>
+                <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-background border border-border shadow-lg z-50">
+                {eventsItems.map((item) => (
+                  <DropdownMenuItem key={item.name} asChild>
+                    <Link
+                      to={item.href}
+                      className="w-full px-4 py-2 text-sm hover:bg-primary/5 hover:text-primary transition-smooth"
+                    >
+                      {item.name}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             <Link
               to="/about"
               className={`px-3 py-2 text-sm font-medium transition-smooth rounded-md ${
@@ -163,6 +192,15 @@ const Header = () => {
             >
               CONTACT US
             </Link>
+            {/* <a href="https://events.axygenpharmatech.com" target="_blank" rel="noopener noreferrer"
+              className={`px-3 py-2 text-sm font-medium transition-smooth rounded-md ${
+                isActive("/contact")
+                  ? "text-primary bg-primary/5"
+                  : "text-foreground hover:text-primary hover:bg-primary/5"
+              }`}
+            >
+              EVENTS
+            </a> */}
           </nav>
 
           {/* Mobile menu button */}
