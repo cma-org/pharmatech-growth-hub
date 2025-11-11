@@ -10,8 +10,13 @@ import {
   CheckCircle,
   TrendingUp
 } from "lucide-react";
+import auditingImage from "@/assets/auditing-compliance.jpg";
+import consultingImage from "@/assets/consulting-strategy.jpg";
 import trainingImage from "@/assets/training-session.jpg";
-import auditImage from "@/assets/audit-quality.jpg";
+import talentImage from "@/assets/talent-recruitment.jpg";
+import leadershipImage from "@/assets/leadership-mentorship.jpg";
+import csvImage from "@/assets/csv-validation.jpg";
+import vrLearningImage from "@/assets/3d-vr-training.jpg";
 import aiImage from "@/assets/ai-dashboard.jpg";
 import CountingNumber from "@/components/CountingNumber";
 
@@ -22,7 +27,7 @@ const ServicePillars = () => {
       title: "Auditing",
       subtitle: "Regulatory Readiness & Compliance",
       description: "Regulatory readiness assessments, internal audits, vendor audits, and gap analysis aligned with international standards.",
-      image: auditImage,
+      image: auditingImage,
       features: [
         "USFDA, EU-GMP, WHO Coverage",
         "Internal & Vendor Audits",
@@ -38,7 +43,7 @@ const ServicePillars = () => {
       title: "Consulting",
       subtitle: "Strategic Quality Systems",
       description: "Strategic quality systems development, remediation support, and compliance optimization tailored to your operations.",
-      image: auditImage,
+      image: consultingImage,
       features: [
         "Quality Systems Development",
         "Remediation Support",
@@ -70,7 +75,7 @@ const ServicePillars = () => {
       title: "Talent Management Solutions",
       subtitle: "GxP-Ready Talent Connection",
       description: "Connecting organizations with GxP-ready talent for QA, QC, Manufacturing, Validation, and Regulatory Affairs roles.",
-      image: trainingImage,
+      image: talentImage,
       features: [
         "QA/QC Professionals",
         "Manufacturing Experts",
@@ -86,7 +91,7 @@ const ServicePillars = () => {
       title: "Leadership & Career Mentor",
       subtitle: "Future-Ready Leadership",
       description: "The future of your leadership begins with the choices you make today. We help to Unlearn, Learn and Re-learn.",
-      image: trainingImage,
+      image: leadershipImage,
       features: [
         "Leadership Development",
         "Career Mentorship",
@@ -102,7 +107,7 @@ const ServicePillars = () => {
       title: "Computer System Validation (CSV)",
       subtitle: "Digital Systems Compliance",
       description: "Compliance assurance for software and digital systems under GAMP 5 and data integrity guidelines.",
-      image: aiImage,
+      image: csvImage,
       features: [
         "GAMP 5 Compliance",
         "Data Integrity Guidelines",
@@ -209,7 +214,7 @@ const ServicePillars = () => {
             <Card className="group hover:shadow-hover hover:scale-[1.02] transition-all duration-300 border-card-border bg-card overflow-hidden">
               <div className="relative h-48 overflow-hidden">
                  <img 
-                  src={trainingImage} 
+                  src={vrLearningImage} 
                   alt="3D Immersive Learning Modules"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
                 />
