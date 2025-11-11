@@ -1,0 +1,17 @@
+/* src/components/EventSection.css */
+.axygen-theme {
+  --brand: #0a4ea1;
+  --brand-600: #0a4ea1;
+  --brand-700: #083e81;
+  --accent: #00b7b0;
+  --ink: #0f172a;
+  --muted: #64748b;
+  --bg: #f8fafc;
+  background-color: var(--bg);
+  color: var(--ink);
+}
+
+.axygen-theme .brand-gradient {
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(10,78,161,.15), transparent 60%),
+              linear-gradient(180deg, rgba(0,183,176,.08), transparent);
+}
